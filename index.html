@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEESO - Creado con pasión, disfrutado con amor</title>
+    
+    <!-- Fuentes elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Raleway:wght@200;300;400;500&family=Lora:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&family=Cardo:wght@300;400&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <!-- NAVBAR ELEGANTE -->
+    <header class="header-elegante">
+        <div class="header-contenedor">
+            <!-- Logo + Nombre de la marca -->
+            <div class="brand-section">
+                <img class="brand-logo" src="img/logo.png" alt="CHESO Logo">
+                <div class="brand-name">
+                    <h1 class="marca-principal">CHEESO</h1>
+                    <p class="tagline-refinado">"Creado con pasión, disfrutado con amor"</p>
+                </div>
+            </div>
+            
+            <!-- Navegación elegante -->
+            <nav class="main-nav-refinado">
+                <a href="#inicio" class="nav-link-elegante active">INICIO</a>
+                <a href="#nosotros" class="nav-link-elegante">NOSOTROS</a>
+                <a href="#productos" class="nav-link-elegante">PRODUCTOS</a>
+                <a href="#compromiso" class="nav-link-elegante">COMPROMISO</a>
+                <a href="#contacto" class="nav-link-elegante">CONTACTO</a>
+            </nav>
+            
+            <!-- Menú móvil -->
+            <button class="menu-mobile" id="menuMobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SLIDER -->
+    <section id="inicio" class="slider">
+        <div class="slides">
+            <!-- Imagen 1: Quesos -->
+            <div class="slide active">
+                <img src="img/primera.jpg" alt="Quesos CHESO">
+                <div class="slide-overlay"></div>
+                <div class="slide-text">
+                    <h2>QUESOS PASTEURIZADOS</h2>
+                    <p>Elaborados con la mejor leche de la región</p>
+                </div>
+            </div>
+            
+            <!-- Imagen 2: Proceso -->
+            <div class="slide">
+                <img src="img/cuajado1.jpg" alt="Proceso CHESO">
+                <div class="slide-overlay"></div>
+                <div class="slide-text">
+                    <h2>TRADICIÓN FAMILIAR</h2>
+                    <p>Más de 20 años creando sabores únicos</p>
+                </div>
+            </div>
+            
+            <!-- Imagen 3: Familia -->
+            <div class="slide">
+                <img src="img/famqueso.jpg" alt="Familia CHESO">
+                <div class="slide-overlay"></div>
+                <div class="slide-text">
+                    <h2>COMPARTE EL SABOR</h2>
+                    <p>Momentos perfectos acompañados de CHESO</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botones de navegación -->
+        <button class="slide-btn prev">‹</button>
+        <button class="slide-btn next">›</button>
+        
+        <!-- Indicadores/puntos -->
+        <div class="slide-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS ELEGANTE -->
+    <section id="nosotros" class="seccion-nosotros-elegante">
+        <div class="contenedor-nosotros">
+            <div class="encabezado-nosotros">
+                <h2 class="titulo-elegante">Sobre Nosotros</h2>
+                <div class="separador-queso">
+                    <span class="linea-oro"></span>
+                    <span class="icono-queso">🧀</span>
+                    <span class="linea-oro"></span>
+                </div>
+            </div>
+            
+            <div class="contenido-familiar">
+                <div class="texto-nosotros">
+                    <p class="destacado-fino">
+                        En <span class="marca-especial">CHEESO</span>, el amor familiar y la tradición se reflejan en cada uno de nuestros quesos.
+                    </p>
+                    
+                    <p class="parrafo-delicado">
+                        Somos una empresa familiar dedicada a la elaboración de productos de alta calidad, creados con dedicación, cuidado y pasión por el buen sabor. Cada detalle de nuestro proceso busca ofrecer una experiencia única que honra generaciones de conocimiento y amor por la quesería artesanal.
+                    </p>
+                    
+                    <p class="parrafo-delicado">
+                        Desde la selección de la mejor leche hasta el proceso de maduración, cada paso está cuidadosamente supervisado para garantizar un producto que celebra nuestra herencia familiar y el compromiso con la excelencia.
+                    </p>
+                    
+                    <div class="firma-familiar">
+                        <span class="linea-firma"></span>
+                        <p class="texto-firma">La familia CHEESO</p>
+                    </div>
+                </div>
+                
+                <div class="imagen-nosotros">
+                    <img src="img/slider1.png" alt="Queso CHESO" class="imagen-refinada">
+                    <div class="marco-decorativo"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PRODUCTOS ELEGANTE -->
+    <section id="productos" class="seccion-productos-elegante">
+        <!-- Cabecera elegante -->
+        <div class="cabecera-productos">
+            <h2 class="titulo-principal">Nuestros Quesos Selectos</h2>
+            <p class="subtitulo-refinado">Pasteurizados</p>
+            <div class="separador-quesero">
+                <span class="linea-separadora"></span>
+                <span class="icono-separador">✦</span>
+                <span class="linea-separadora"></span>
+            </div>
+        </div>
+        
+        <!-- Selector de tipo de venta -->
+        <div class="selector-venta">
+            <div class="opciones-venta">
+                <button class="btn-venta active" data-tipo="molde grande">
+                    <span class="icono-venta">🧀</span>
+                    <span class="texto-venta">Por Molde</span>
+                    <span class="desc-venta">Entero o mitades</span>
+                </button>
+                
+                <button class="btn-venta" data-tipo="molde de kilo">
+                    <span class="icono-venta">⚖️</span>
+                    <span class="texto-venta">Molde de un Kilo</span>
+                    <span class="desc-venta">Peso exacto</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Productos Grid -->
+        <div class="grid-productos">
+            <!-- Producto 1: Queso de Molde -->
+            <div class="card-producto destacado">
+                <div class="badge-mas-vendido">
+                    <span class="icono-estrella">★</span>
+                    MÁS VENDIDO
+                </div>
+                
+                <div class="imagen-producto">
+                    <img src="img/queso-molde.jpg" alt="Queso de Molde CHESO">
+                    <div class="overlay-tiempo">
+                        <span class="icono-reloj">⏱️</span>
+                        <span class="tiempo-maduracion">23-37 días</span>
+                    </div>
+                </div>
+                
+                <div class="info-producto">
+                    <h3 class="nombre-queso">Queso de Molde</h3>
+                    <p class="descripcion-queso">Fresco pasteurizado, ideal para sandwiches y loncheras, textura suave y cremosa</p>
+                    
+                    <div class="detalles-producto">
+                        <div class="dato-queso">
+                            <span class="icono-dato">🌡️</span>
+                            <span class="texto-dato">Pasteurizado</span>
+                        </div>
+                        <div class="dato-queso">
+                            <span class="icono-dato">⏳</span>
+                            <span class="texto-dato">Fresco: 1-2 días</span>
+                        </div>
+                    </div>
+                    
+                    <div class="precio-container">
+                        <div class="precio-info">
+                            <span class="precio-actual">S/ ___</span>
+                            <span class="unidad-venta">/ molde</span>
+                        </div>
+                        <span class="precio-kilo">(consulta precio/kg)</span>
+                    </div>
+                    
+                    <button class="btn-whatsapp-producto" onclick="abrirWhatsApp('Queso de Molde')">
+                        <span class="icono-whatsapp">💬</span>
+                        Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Producto 2: Queso por Kilo -->
+            <div class="card-producto">
+                <div class="imagen-producto">
+                    <img src="img/queso-1kilo-.jpg" alt="Queso por Kilo CHESO">
+                </div>
+                
+                <div class="info-producto">
+                    <h3 class="nombre-queso">Queso por Kilo</h3>
+                    <p class="descripcion-queso">Perfecto para restaurantes y familias grandes, versátil para múltiples preparaciones</p>
+                    
+                    <div class="detalles-producto">
+                        <div class="dato-queso">
+                            <span class="icono-dato">🌡️</span>
+                            <span class="texto-dato">Pasteurizado</span>
+                        </div>
+                        <div class="dato-queso">
+                            <span class="icono-dato">⚖️</span>
+                            <span class="texto-dato">Peso exacto</span>
+                        </div>
+                    </div>
+                    
+                    <div class="precio-container">
+                        <div class="precio-info">
+                            <span class="precio-actual">S/ ___</span>
+                            <span class="unidad-venta">/ kilo</span>
+                        </div>
+                        <span class="precio-kilo">(precio por mayor)</span>
+                    </div>
+                    
+                    <button class="btn-whatsapp-producto" onclick="abrirWhatsApp('Queso por Kilo')">
+                        <span class="icono-whatsapp">💬</span>
+                        Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Servicios destacados -->
+        <div class="servicios-destacados">
+            <div class="servicio-item">
+                <span class="servicio-icono">🚚</span>
+                <div class="servicio-texto">
+                    <h4>Envíos a todo Lima</h4>
+                    <p>Próximamente a todo Perú</p>
+                </div>
+            </div>
+            
+            <div class="servicio-item">
+                <span class="servicio-icono">⏰</span>
+                <div class="servicio-texto">
+                    <h4>Pedidos con 24h anticipación</h4>
+                    <p>Garantía de frescura</p>
+                </div>
+            </div>
+            
+            <div class="servicio-item">
+                <span class="servicio-icono">🛡️</span>
+                <div class="servicio-texto">
+                    <h4>Calidad garantizada</h4>
+                    <p>Procesos certificados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NUESTRO COMPROMISO -->
+    <section id="compromiso" class="seccion-compromiso-elegante">
+        <div class="contenedor-compromiso">
+            <!-- Título principal -->
+            <div class="cabecera-compromiso">
+                <h2 class="titulo-compromiso">Nuestra Promesa a Ti</h2>
+                <p class="subtitulo-compromiso">Más que quesos, una experiencia de confianza y calidad</p>
+                <div class="separador-elegante">
+                    <span class="linea-izquierda"></span>
+                    <span class="icono-corazon">❤️</span>
+                    <span class="linea-derecha"></span>
+                </div>
+            </div>
+            
+            <!-- Grid de compromisos -->
+            <div class="grid-compromisos">
+                <!-- Compromiso 1 -->
+                <div class="card-compromiso">
+                    <div class="icono-compromiso">
+                        <span class="icono-grande">🚚</span>
+                    </div>
+                    <h3 class="titulo-item">Cobertura de Envíos</h3>
+                    <p class="texto-compromiso">
+                        <strong>Envíos a todo Lima</strong> con seguimiento en tiempo real. Próximamente expandiremos nuestro servicio a todo el Perú.
+                    </p>
+                </div>
+                
+                <!-- Compromiso 2 -->
+                <div class="card-compromiso destacado">
+                    <div class="icono-compromiso">
+                        <span class="icono-grande">⏱️</span>
+                    </div>
+                    <h3 class="titulo-item">Entrega Puntual</h3>
+                    <p class="texto-compromiso">
+                        <strong>Pedidos con 24 horas de anticipación.</strong> Respaldamos cada entrega con nuestro compromiso de puntualidad.
+                    </p>
+                </div>
+                
+                <!-- Compromiso 3 -->
+                <div class="card-compromiso">
+                    <div class="icono-compromiso">
+                        <span class="icono-grande">🛡️</span>
+                    </div>
+                    <h3 class="titulo-item">Calidad Certificada</h3>
+                    <p class="texto-compromiso">
+                        <strong>Calidad garantizada</strong> en cada producto. Nuestros procesos cumplen con los más altos estándares de seguridad.
+                    </p>
+                </div>
+                
+                <!-- Compromiso 4 -->
+                <div class="card-compromiso">
+                    <div class="icono-compromiso">
+                        <span class="icono-grande">🧀</span>
+                    </div>
+                    <h3 class="titulo-item">Variedad en Crecimiento</h3>
+                    <p class="texto-compromiso">
+                        <strong>Más variedad de quesos próximamente.</strong> Estamos desarrollando nuevas recetas familiares para ofrecerte más opciones.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Llamada a la acción -->
+            <div class="cta-compromiso">
+                <div class="cta-contenido">
+                    <h3 class="cta-titulo">¿Listo para probar la diferencia?</h3>
+                    <p class="cta-texto">Conversemos directamente sobre tu pedido</p>
+                    
+                    <div class="cta-botones">
+                        <button class="btn-whatsapp-grande" onclick="abrirWhatsApp('Información sobre pedidos')">
+                            <span class="icono-whatsapp">💬</span>
+                            CONTÁCTANOS POR WHATSAPP
+                        </button>
+                        
+                        <a href="tel:+51913297090" class="btn-llamada">
+                            <span class="icono-llamada">📞</span>
+                            LLÁMANOS DIRECTAMENTE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER ELEGANTE -->
+    <footer class="footer-elegante" id="contacto">
+        <div class="footer-contenido">
+            <!-- Sección superior del footer -->
+            <div class="footer-superior">
+                <!-- Columna 1: Branding -->
+                <div class="columna-branding">
+                    <div class="logo-footer">
+                        <h2 class="marca-delicada">CHESO</h2>
+                        <p class="eslogan-refinado">"Creado con pasión, disfrutado con amor"</p>
+                    </div>
+                    
+                    <div class="contacto-directo">
+                        <div class="numero-grande">
+                            <span class="icono-telefono">📱</span>
+                            <a href="tel:+51913297090" class="numero-telefono">+51 913 297 090</a>
+                        </div>
+                        <p class="horario-delicado">Lunes a Sábado · 8:00 AM - 8:00 PM</p>
+                    </div>
+                    
+                    <div class="redes-sociales">
+                        <a href="https://facebook.com/chesso" class="social-link" target="_blank" aria-label="Facebook">
+                            <span class="social-icon">📘</span>
+                        </a>
+                        <a href="https://instagram.com/chesso" class="social-link" target="_blank" aria-label="Instagram">
+                            <span class="social-icon">📷</span>
+                        </a>
+                        <a href="https://tiktok.com/@chesso" class="social-link" target="_blank" aria-label="TikTok">
+                            <span class="social-icon">🎵</span>
+                        </a>
+                        <a href="mailto:contacto@chesso.com" class="social-link" aria-label="Email">
+                            <span class="social-icon">✉️</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Columna 2: Nuestros Quesos -->
+                <div class="columna-menu">
+                    <h3 class="titulo-columna">Nuestros Quesos</h3>
+                    <ul class="lista-delicada">
+                        <li><a href="#productos" class="link-footer">Queso de Molde</a></li>
+                        <li><a href="#productos" class="link-footer">Queso por Kilo</a></li>
+                        <li><a href="#productos" class="link-footer">Queso para Restaurantes</a></li>
+                        <li><a href="#productos" class="link-footer">Pedidos Especiales</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3: Nuestros Servicios -->
+                <div class="columna-menu">
+                    <h3 class="titulo-columna">Nuestros Servicios</h3>
+                    <ul class="lista-delicada">
+                        <li><a href="#compromiso" class="link-footer">Delivery en Lima</a></li>
+                        <li><a href="#productos" class="link-footer">Pedidos por Mayor</a></li>
+                        <li><a href="#productos" class="link-footer">Venta a Restaurantes</a></li>
+                        <li><a href="#compromiso" class="link-footer">Pedidos con Anticipación</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 4: Contacto Directo -->
+                <div class="columna-contacto">
+                    <h3 class="titulo-columna">Contáctanos</h3>
+                    <div class="contacto-whatsapp">
+                        <span class="icono-whatsapp">💬</span>
+                        <div class="whatsapp-info">
+                            <p class="whatsapp-texto">Escríbenos directamente</p>
+                            <button class="btn-whatsapp-footer" onclick="abrirWhatsApp('Consulta general')">
+                                Chat WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="info-empresa">
+                        <p class="texto-legal-delicado">
+                            <strong>CHESO SAC</strong><br>
+                            RUC 201000XXXXX<br>
+                            Lima, Perú
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Separador decorativo -->
+            <div class="separador-footer">
+                <span class="linea-quesera"></span>
+                <span class="icono-queso-footer">🧀</span>
+                <span class="linea-quesera"></span>
+            </div>
+            
+            <!-- Cita inspiradora -->
+            <div class="cita-footer">
+                <blockquote class="cita-delicada">
+                    "Más que un queso, una tradición familiar que llega a tu mesa"
+                </blockquote>
+            </div>
+            
+            <!-- Sección inferior del footer -->
+            <div class="footer-inferior">
+                <div class="derechos-reservados">
+                    <p class="copyright-delicado">© Copyright 2024 CHESO. Todos los derechos reservados.</p>
+                    <p class="elaborado-con-amor">Elaborado con amor en Lima, Perú</p>
+                </div>
+                
+                <div class="enlaces-legales">
+                    <a href="#" class="link-legal">Política de Privacidad</a>
+                    <span class="separador-legal">·</span>
+                    <a href="#" class="link-legal">Términos y Condiciones</a>
+                    <span class="separador-legal">·</span>
+                    <a href="#" class="link-legal">Libro de Reclamaciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTONES FLOTANTES CON ÍCONOS -->
+    <div class="botones-flotantes">
+        <a href="https://wa.me/51913297090" target="_blank" class="btn-floating whatsapp" onclick="abrirWhatsApp('Consulta desde botón flotante')">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://facebook.com/chesso" target="_blank" class="btn-floating facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/chesso" target="_blank" class="btn-floating instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+    // Función para abrir WhatsApp
+    function abrirWhatsApp(producto) {
+        // Reemplaza con tu número de WhatsApp (sin el + y sin espacios)
+        const numeroWhatsApp = '51913297090';
+        
+        // Mensaje predeterminado
+        let mensaje = `¡Hola CHESO! Estoy interesado en: ${producto}. ¿Podrían darme más información?`;
+        
+        // Codificar el mensaje para URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        
+        // Crear el enlace de WhatsApp
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+        
+        // Abrir en nueva pestaña
+        window.open(urlWhatsApp, '_blank');
+    }
+
+    // Para cambiar entre Por Molde / Por Kilo
+    document.addEventListener('DOMContentLoaded', function() {
+        const botonesVenta = document.querySelectorAll('.btn-venta');
+        
+        botonesVenta.forEach(boton => {
+            boton.addEventListener('click', function() {
+                // Remover clase active de todos
+                botonesVenta.forEach(btn => btn.classList.remove('active'));
+                // Agregar clase active al clickeado
+                this.classList.add('active');
+                
+                // Aquí podrías cambiar los precios según la opción seleccionada
+                const tipoVenta = this.getAttribute('data-tipo');
+                console.log(`Mostrar precios por: ${tipoVenta}`);
+            });
+        });
+
+        // Menú móvil
+        const menuMobile = document.getElementById('menuMobile');
+        const navRefinado = document.querySelector('.main-nav-refinado');
+        
+        if (menuMobile) {
+            menuMobile.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navRefinado.classList.toggle('active');
+            });
+        }
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Cerrar menú móvil si está abierto
+                    if (menuMobile && menuMobile.classList.contains('active')) {
+                        menuMobile.classList.remove('active');
+                        navRefinado.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Slider automático
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+        
+        // Botones next/prev del slider
+        document.querySelector('.next')?.addEventListener('click', () => {
+            currentSlide++;
+            showSlide(currentSlide);
+        });
+        
+        document.querySelector('.prev')?.addEventListener('click', () => {
+            currentSlide--;
+            showSlide(currentSlide);
+        });
+        
+        // Auto-slide cada 5 segundos
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
+    });
+    </script>
+</body>
+</html>
