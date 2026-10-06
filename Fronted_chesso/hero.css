@@ -1,0 +1,70 @@
+.premium-hero {
+    position: relative;
+    margin-top: 72px;
+    background: #f6efdf;
+    overflow: hidden;
+    color: var(--marron-profundo);
+}
+.hero-layout {
+    max-width: 1240px;
+    margin: auto;
+    padding: 84px 40px 72px;
+    min-height: min(760px, 85vh);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 32px;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; color: var(--marron); font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+.hero-eyebrow::before { content: ''; width: 34px; height: 1px; background: var(--dorado); }
+.hero-copy h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.6rem, 6.6vw, 6.3rem); font-weight: 500; line-height: 1.12; letter-spacing: -.055em; margin: 24px 0 12px; }
+.hero-product-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.15; color: var(--marron); }
+.hero-motto { font-family: 'Lora', serif; max-width: 330px; font-size: 1.08rem; line-height: 1.8; color: var(--gris); margin: 24px 0 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 52px; padding: 14px 21px; border: 1px solid var(--marron); border-radius: 3px; text-decoration: none; font-size: .78rem; font-weight: 600; transition: background .25s, box-shadow .25s, transform .25s; }
+.hero-button-primary { color: var(--crema); background: var(--marron); }
+.hero-button-secondary { color: var(--marron); background: transparent; }
+.hero-button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px #6f3f1f12; background: var(--dorado-suave); color: var(--marron-profundo); }
+.hero-button:focus-visible, .hero-discover:focus-visible { outline: 2px solid var(--marron); outline-offset: 5px; }
+.hero-note { margin-top: 28px; font-size: .65rem; letter-spacing: .13em; text-transform: uppercase; color: var(--gris); }
+.hero-stage { position: relative; min-width: 0; height: 450px; display: grid; place-items: center; isolation: isolate; }
+.hero-stage::before { content: ''; position: absolute; width: 100%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fffaf0 0%, #f2e5cb90 47%, transparent 70%); z-index: -1; }
+.hero-orbit { position: absolute; width: 92%; aspect-ratio: 1; border: 1px solid #c9924124; border-radius: 50%; transform: rotate(-20deg) scaleY(.86); }
+.hero-orbit::after { content: ''; position: absolute; top: 13%; left: 13%; width: 6px; height: 6px; background: var(--dorado); border-radius: 50%; }
+.cheese-parallax { width: 86%; max-width: 430px; transform: translate3d(var(--cheese-x, 0px), var(--cheese-y, 0px), 0) rotate(var(--cheese-turn, -8deg)); transition: transform .65s ease-out; }
+.cheese-float { position: relative; height: 275px; animation: cheeseFloat 8s ease-in-out infinite; }
+.cheese-side { position: absolute; left: 0; right: 0; top: 84px; height: 174px; border-radius: 0 0 50% 50% / 0 0 47% 47%; background: repeating-linear-gradient(90deg, transparent 0 13px, #bda66c18 14px 15px), linear-gradient(90deg, #cfb780, #f1dfaa 22%, #ead7a0 56%, #cbb17a); box-shadow: inset 0 -15px 24px #96703c20, 0 16px 26px #50331712; }
+.cheese-top { position: absolute; inset: 0 0 auto; height: 180px; border-radius: 50%; background: radial-gradient(ellipse at 30% 25%, #fff9dd, #f1e5bd 60%, #e5d4a1); border: 1px solid #decb99; box-shadow: inset 0 3px 8px #ffffffc0, inset 0 -4px 8px #bb9b6320; }
+.cheese-top::before { content: ''; position: absolute; inset: 9px 12px; border: 1px solid #c7af762b; border-radius: 50%; background-image: radial-gradient(ellipse, #c6ad7650 0 1px, transparent 2px), radial-gradient(ellipse, #fffdf380 0 2px, transparent 3px); background-size: 27px 21px, 43px 31px; background-position: 8px 5px, 19px 13px; opacity: .65; }
+.cheese-top::after { content: ''; position: absolute; inset: 24px 32px; border: 1px solid #fff8df80; border-radius: 50%; }
+.cheese-shadow { position: absolute; bottom: 40px; width: 72%; height: 32px; border-radius: 50%; background: #72502226; filter: blur(15px); }
+.hero-product-caption { position: absolute; bottom: 0; text-align: center; color: var(--marron); font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; }
+.hero-product-caption span { display: block; font-family: 'Raleway', sans-serif; font-size: .57rem; letter-spacing: .18em; text-transform: uppercase; margin-top: 3px; color: var(--gris); }
+.hero-footer { max-width: 1160px; margin: auto; padding: 22px 0; border-top: 1px solid var(--linea); display: flex; align-items: center; justify-content: space-between; color: var(--gris); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; }
+.hero-discover { text-decoration: none; display: inline-flex; gap: 18px; align-items: center; }
+#nosotros, #productos { scroll-margin-top: 90px; }
+.hero-next-reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
+.hero-next-reveal.is-visible { opacity: 1; transform: none; }
+@keyframes cheeseFloat { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
+@media (max-width: 900px) { .hero-layout { padding: 64px 28px 48px; gap: 16px; } .hero-stage { height: 370px; } .cheese-float { height: 230px; } .cheese-top { height: 145px; } .cheese-side { top: 70px; height: 145px; } .hero-footer { margin: 0 28px; } }
+@media (max-width: 640px) {
+    .premium-hero { margin-top: 66px; }
+    .hero-layout { grid-template-columns: 1fr; min-height: auto; padding: 48px 24px 24px; gap: 12px; }
+    .hero-copy h1 { font-size: clamp(3.4rem, 15vw, 5rem); margin-top: 18px; }
+    .hero-motto { margin: 18px 0 24px; font-size: 1rem; }
+    .hero-stage { height: 330px; width: 100%; max-width: 390px; margin: auto; }
+    .cheese-parallax { width: 82%; }
+    .cheese-top { height: 130px; }
+    .cheese-side { top: 62px; height: 133px; }
+    .cheese-float { height: 200px; }
+    .cheese-shadow { bottom: 55px; }
+    .hero-footer { margin: 0 24px; font-size: .57rem; gap: 18px; }
+    .hero-note { margin-top: 20px; font-size: .59rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cheese-float { animation: none; }
+    .cheese-parallax { transform: none; transition: none; }
+    .hero-next-reveal { opacity: 1; transform: none; transition: none; }
+    .hero-button { transition: none; }
+}

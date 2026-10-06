@@ -1,0 +1,143 @@
+﻿/* Visual correction based on imagen_referencia; scoped to the existing hero/header. */
+.header-elegante { inset: 16px 20px auto; max-width: none; margin-inline: auto; border: 1px solid #00617a0c; border-radius: 34px; background: #fffdf8f2; box-shadow: 0 8px 30px #00617a09; }
+.header-elegante::before { display: none; }
+.header-elegante.scrolled { background: #fffdf8fa; }
+.header-contenedor { max-width: none; min-height: 132px; padding: 12px 32px; gap: 22px; }
+.brand-section { flex-direction: column; gap: 2px; min-width: 235px; }
+/* Show the original asset's wordmark at full scale without its circular backdrop. */
+.brand-logo-window { position: relative; width: 235px; height: 91px; overflow: hidden; }
+.brand-logo { position: absolute; width: 360px; height: auto; max-width: none; left: -65px; top: -126px; padding: 0; border: 0; box-shadow: none; border-radius: 0; filter: url(#cheeso-logo-ink); }
+.brand-name { text-align: center; }
+.marca-principal { display: none; }
+.tagline-refinado { display: block; font-family: 'Raleway', sans-serif; font-size: .68rem; color: #00617a; max-width: none; white-space: normal; font-style: normal; line-height: 1.4; }
+.nav-link-elegante { color: #00617a; text-transform: none; font-size: clamp(.9rem, 1.12vw, 1.15rem); letter-spacing: -.02em; padding: 13px 15px; white-space: nowrap; }
+.nav-link-elegante:hover, .nav-link-elegante.active { color: #00617a; background: #d9e8ee; }
+.header-actions { border: 0; padding: 0; gap: 8px; }
+.header-elegante .icon-btn { width: 43px; height: 43px; font-size: 1.35rem; color: #00617a; background: transparent; border-color: transparent; text-decoration: none; }
+.header-elegante .icon-btn:hover { background: #d9e8ee; box-shadow: 0 6px 16px #00617a14; }
+.social-pending { opacity: .45; cursor: default; }
+.cart-count { background: #00617a; color: #fffdf8; }
+.menu-mobile { border-color: #00617a20; }
+.menu-mobile span { background: #00617a; }
+.header-elegante [hidden] { display: none !important; }
+.premium-hero { --navbar-space: 164px; margin-top: 0; padding-top: var(--navbar-space); min-height: 100svh; background: radial-gradient(ellipse at 7% 3%, #f6e2c4b0, transparent 48%), radial-gradient(ellipse at 73% 65%, #f7c45b18, transparent 58%), #fff5e6; color: #00617a; isolation: isolate; }
+.premium-hero::before { content: ''; position: absolute; z-index: -1; top: 27%; left: -9%; width: 20%; height: 45%; background: #f7c45b25; border-radius: 38% 62% 71% 29% / 49% 70% 30% 51%; transform: rotate(-25deg); }
+.premium-hero::after { content: ''; position: absolute; z-index: -1; top: 13%; left: 38%; width: 30%; height: 26%; border-radius: 35% 65% 66% 34% / 30% 27% 73% 70%; background: #d9e8ee30; transform: rotate(22deg); }
+.hero-layout { position: relative; max-width: 1800px; width: 100%; grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr); gap: 0; padding: 22px 0 104px clamp(32px, 4.5vw, 80px); min-height: calc(100svh - var(--navbar-space)); align-items: center; }
+.hero-copy { position: relative; z-index: 2; min-width: 0; padding-right: 24px; animation: cheesoFromLeft .8s ease both; }
+.hero-copy h1 { font-family: 'Nunito', 'Arial Rounded MT Bold', sans-serif; font-size: clamp(5rem, 8.5vw, 9rem); font-weight: 900; line-height: .99; letter-spacing: -.055em; margin: 0 0 32px; color: #00617a; text-shadow: 4px 5px 0 #fffdf8; transform: rotate(-2deg); }
+.hero-brush { position: relative; z-index: 0; display: inline-block; white-space: nowrap; }
+.hero-brush::before { content: ''; position: absolute; z-index: -1; inset: 30% -6% -5%; background: #f7c45bd9; transform: rotate(1deg); clip-path: polygon(2% 19%, 6% 10%, 15% 5%, 27% 8%, 40% 2%, 52% 6%, 65% 0, 78% 5%, 92% 10%, 98% 18%, 100% 31%, 97% 42%, 99% 53%, 96% 64%, 99% 79%, 95% 94%, 84% 98%, 72% 91%, 57% 97%, 45% 92%, 31% 100%, 18% 96%, 7% 100%, 2% 91%, 0 76%, 3% 65%, 1% 54%, 4% 42%, 0 30%); }
+.hero-title-rays { position: absolute; width: 58px; height: 85px; left: -45px; top: 36px; color: #f7c45b; transform: rotate(-12deg); }
+.hero-motto { font-family: 'Dancing Script', cursive; font-size: clamp(1.6rem, 2.3vw, 2.5rem); font-weight: 500; font-style: normal; color: #00617a; line-height: 1.35; margin: 0 0 18px; max-width: none; }
+.hero-description { font-family: 'Raleway', sans-serif; color: #315d69; font-size: clamp(1rem, 1.25vw, 1.3rem); line-height: 1.7; max-width: 610px; margin-bottom: 30px; }
+.hero-actions { flex-direction: row; flex-wrap: wrap; gap: 14px; }
+.hero-button { min-height: 62px; border-radius: 999px; padding: 16px 25px; font-size: clamp(.9rem, 1.08vw, 1.12rem); font-weight: 700; border: 2px solid #00617a; transition: background .25s, box-shadow .25s, transform .25s; }
+.hero-button-primary { background: #00617a; color: #fffdf8; }
+.hero-button-primary:hover { background: #006b82; color: white; }
+.hero-button-secondary { background: #fffdf8b0; color: #00617a; }
+.hero-button-secondary:hover { background: #d9e8ee; color: #00617a; }
+.hero-button:hover { transform: translateY(-2px); box-shadow: 0 9px 20px #00617a20; }
+.hero-button-secondary i { font-size: 1.5rem; }
+.hero-benefits { max-width: 630px; margin: 34px 0 0; padding: 0; border: 0; gap: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.hero-benefits div { position: relative; flex-direction: column; justify-content: flex-start; align-items: center; gap: 9px; padding: 0 7px; color: #00617a; font-size: clamp(.85rem, 1.06vw, 1.08rem); line-height: 1.4; text-align: center; }
+.hero-benefits div + div { border: 0; }
+.benefit-icon { width: 58px; height: 58px; padding: 7px; overflow: visible; background: #f6e2c4; border-radius: 61% 39% 59% 41% / 47% 52% 48% 53%; color: #00617a; flex-shrink: 0; }
+.hero-benefits span { max-width: 155px; }
+.hero-stage { position: relative; align-self: stretch; display: flex; align-items: center; padding: 0; width: 100%; max-width: none; height: auto; min-height: 600px; margin: 0; isolation: isolate; animation: cheesoFromRight .9s ease .12s both; }
+.hero-stage::before { inset: 7% 0 5% -8%; width: auto; aspect-ratio: auto; background: #f6e2c460; border-radius: 28% 0 0 34% / 33% 0 0 49%; transform: rotate(-3deg); }
+.hero-photo { width: 100%; height: 100%; min-height: 600px; position: absolute; inset: 0; aspect-ratio: auto; object-fit: cover; object-position: 48% 52%; border-radius: 0; box-shadow: none; clip-path: url(#cheeso-photo-clip); -webkit-mask-image: linear-gradient(90deg, transparent, #000c 12%, black 22%); mask-image: linear-gradient(90deg, transparent, #000c 12%, black 22%); }
+.hero-annotation { position: absolute; z-index: 2; color: #00617a; font-family: 'Dancing Script', cursive; font-size: clamp(1.6rem, 2.2vw, 2.5rem); font-weight: 500; line-height: 1.08; animation: cheesoNote 7s ease-in-out infinite; text-shadow: 0 1px 8px #fff5e6; }
+.annotation-fresh { top: 19%; left: 2%; right: auto; transform: rotate(-9deg); }
+.annotation-fresh svg { display: block; width: 72px; height: 72px; margin-left: 16px; }
+.annotation-quality { top: 5%; right: 6%; left: auto; bottom: auto; transform: rotate(7deg); padding: 12px 18px; background: #fff5e6dd; border-radius: 44% 56% 38% 62% / 39% 45% 55% 61%; text-align: center; }
+.hero-heart { position: absolute; z-index: 2; width: 54px; height: 60px; color: #fffdf8; pointer-events: none; animation: cheesoNote 8s ease-in-out infinite; }
+.heart-top { top: 10%; left: 30%; transform: rotate(-17deg); }
+.heart-side { top: 35%; right: 4%; width: 42px; transform: rotate(18deg); }
+.hero-bottom-wave { position: absolute; z-index: 3; bottom: -1px; left: 0; width: 100%; height: 100px; pointer-events: none; }
+.botones-flotantes { position: fixed; right: 24px; bottom: 24px; z-index: 1100; }
+.btn-floating.whatsapp { position: relative; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; font-size: 1.9rem; box-shadow: 0 7px 22px #075e5430; transition: transform .25s ease; }
+.btn-floating.whatsapp:hover { transform: scale(1.07); }
+.whatsapp-tooltip { position: absolute; right: calc(100% + 14px); top: 50%; transform: translateY(-50%); background: #fffdf8; color: #00617a; padding: 10px 14px; border-radius: 12px; font: 600 .78rem 'Raleway', sans-serif; white-space: nowrap; box-shadow: 0 5px 20px #00617a18; opacity: 0; visibility: hidden; transition: opacity .2s; pointer-events: none; }
+.whatsapp:hover .whatsapp-tooltip, .whatsapp:focus-visible .whatsapp-tooltip { opacity: 1; visibility: visible; }
+.header-elegante :focus-visible, .hero-button:focus-visible, .whatsapp:focus-visible { outline: 3px solid #00617a; outline-offset: 4px; }
+@keyframes cheesoFromLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: none; } }
+@keyframes cheesoFromRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: none; } }
+@keyframes cheesoNote { 50% { translate: 0 -3px; } }
+@media (max-width: 1300px) {
+ .header-contenedor { padding-inline: 20px; gap: 12px; }
+ .brand-section { min-width: 215px; }
+ .nav-link-elegante { padding-inline: 10px; font-size: .88rem; }
+ .header-actions { gap: 3px; }
+ .header-elegante .icon-btn { width: 38px; height: 38px; }
+ .hero-layout { padding-left: 40px; }
+ .hero-copy { padding-right: 16px; }
+ .hero-button { padding-inline: 18px; font-size: .9rem; }
+ .hero-title-rays { left: -30px; width: 42px; }
+}
+@media (max-width: 1100px) {
+ .menu-mobile { display: flex; }
+ .main-nav-refinado { position: absolute; top: calc(100% + 10px); right: 0; width: min(340px, calc(100vw - 40px)); height: auto; padding: 20px; background: #fffdf8; border: 1px solid #00617a15; border-radius: 22px; box-shadow: 0 15px 30px #00617a15; flex-direction: column; align-items: stretch; visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity .2s, transform .2s; }
+ .main-nav-refinado.active { visibility: visible; opacity: 1; pointer-events: auto; transform: none; }
+ .nav-link-elegante { font-size: 1rem; padding: 12px; }
+ .header-contenedor { justify-content: space-between; }
+ .hero-copy h1 { font-size: clamp(4rem, 8.4vw, 6rem); }
+ .hero-stage, .hero-photo { min-height: 620px; }
+ .hero-actions { flex-direction: column; align-items: stretch; }
+ .hero-motto { font-size: 1.7rem; }
+ .hero-benefits { gap: 8px; }
+ .hero-benefits div { font-size: .85rem; padding: 0; }
+}
+@media (max-width: 700px) {
+ .header-elegante { inset: 10px 12px auto; border-radius: 24px; }
+ .header-contenedor { min-height: 118px; padding: 10px 12px; gap: 8px; }
+ .brand-section { min-width: 0; width: 175px; }
+ .brand-logo-window { width: 175px; height: 68px; }
+ .brand-logo { width: 270px; left: -49px; top: -94px; }
+ .tagline-refinado { font-size: .59rem; }
+ .header-actions { flex-wrap: wrap; max-width: 132px; justify-content: flex-end; gap: 5px; }
+ .header-elegante .social-header { width: 30px; height: 30px; font-size: 1.2rem; }
+ .menu-mobile { width: 36px; height: 36px; }
+ .premium-hero { --navbar-space: 142px; min-height: auto; }
+ .hero-layout { grid-template-columns: 1fr; padding: 32px 0 70px; gap: 24px; min-height: calc(100svh - var(--navbar-space)); }
+ .hero-copy { padding: 0 26px; }
+ .hero-copy h1 { font-size: clamp(3.7rem, 15.8vw, 6.5rem); margin-bottom: 28px; }
+ .hero-title-rays { left: 6px; top: 20px; width: 30px; height: 55px; }
+ .hero-motto { font-size: 1.8rem; }
+ .hero-description { font-size: 1.05rem; margin-bottom: 24px; }
+ .hero-actions { align-items: stretch; }
+ .hero-button { width: 100%; min-height: 60px; font-size: 1rem; }
+ .hero-benefits { gap: 12px; margin-top: 28px; }
+ .hero-benefits div { font-size: .8rem; }
+ .benefit-icon { width: 52px; height: 52px; }
+ .hero-stage { min-height: 450px; width: 100%; max-width: none; margin: 0; padding: 0; }
+ .hero-photo { min-height: 0; object-position: 48% 50%; clip-path: none; border-radius: 32% 16% 0 0 / 14% 9% 0 0; -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 87%, transparent); mask-image: linear-gradient(180deg, transparent, black 20%, black 87%, transparent); }
+ .hero-stage::before { inset: 0; border-radius: 0; }
+ .hero-annotation { font-size: 1.7rem; }
+ .annotation-fresh { top: 4%; left: 6%; }
+ .annotation-fresh svg { width: 55px; height: 55px; }
+ .annotation-quality { top: 8%; right: 5%; font-size: 1.5rem; }
+ .heart-top { top: 10%; left: 43%; width: 36px; }
+ .heart-side { top: 49%; right: 3%; }
+ .hero-bottom-wave { height: 74px; }
+ .botones-flotantes { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); }
+ .btn-floating.whatsapp { width: 56px; height: 56px; }
+ .whatsapp-tooltip { font-size: .7rem; padding: 10px; right: calc(100% + 8px); }
+}
+@media (max-width: 360px) {
+ .brand-section { width: 150px; }
+ .brand-logo-window { width: 150px; height: 59px; }
+ .brand-logo { width: 235px; left: -43px; top: -82px; }
+ .header-actions { max-width: 105px; gap: 2px; }
+ .hero-copy { padding-inline: 20px; }
+ .hero-benefits { gap: 6px; }
+ .hero-benefits div { font-size: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ .hero-copy, .hero-stage, .hero-annotation, .hero-heart { animation: none; }
+ .hero-button, .header-elegante .icon-btn, .btn-floating.whatsapp, .main-nav-refinado { transition: none; }
+ .hero-button:hover, .header-elegante .icon-btn:hover, .btn-floating.whatsapp:hover { transform: none; }
+}
+
+.cheeso-svg-definitions { position: absolute; overflow: hidden; pointer-events: none; }

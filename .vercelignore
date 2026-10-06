@@ -1,0 +1,13 @@
+.git/
+.env*
+Backend_chesso/data/
+Backend_chesso/tests/
+/*.png
+Fronted_chesso/imagen_referencia/
+Fronted_chesso/img/imagen_referencia/
+scripts/migrate-db.cjs
+desktop.ini
+.aws/
+.codex/
+.agents/
+.ssh/

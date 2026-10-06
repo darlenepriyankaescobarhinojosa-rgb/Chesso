@@ -1,0 +1,38 @@
+/* Limited to hero photographs, the large-mold action, and the existing FAQ. */
+.hero-stage[data-hero-carousel] .hero-photo { opacity: 0; transition: opacity .4s ease; }
+.hero-stage[data-hero-carousel] .hero-photo.is-active { opacity: 1; }
+.hero-image-controls { position: absolute; z-index: 4; bottom: 130px; right: 8%; display: flex; align-items: center; padding: 3px 7px; border: 1px solid #006b8219; border-radius: 999px; background: #fffdf8d9; box-shadow: 0 3px 12px #006b820c; }
+.hero-image-controls button { display: grid; place-items: center; width: 38px; height: 44px; color: #006b82; background: transparent; border: 0; border-radius: 50%; cursor: pointer; }
+.hero-image-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #006b8235; }
+.hero-image-dot.is-active::before { background: #006b82; }
+.hero-image-controls svg { width: 14px; height: 14px; }
+.hero-image-controls [hidden] { display: none !important; }
+.hero-image-controls button:focus-visible { outline: 2px solid #006b82; outline-offset: -3px; }
+#productos [data-id="queso-grande"] .large-mold-note { font-size: .8rem; color: #416775; margin: 12px 0 0; line-height: 1.6; }
+#productos [data-id="queso-grande"] .premium-buy { text-decoration: none; }
+#faqFloatToggle { width: 52px; height: 52px; align-self: center; background: #fff5e6; color: #006b82; border: 1px solid #006b8230; box-shadow: 0 4px 14px #006b8215; font: 900 1.65rem 'Nunito', sans-serif; }
+#faqFloatToggle::after { content: ''; position: absolute; width: 6px; height: 6px; margin: 32px 0 0 30px; border-radius: 50%; background: #f7c45b; }
+#faqPanel { right: 24px; bottom: 166px; width: min(350px, calc(100vw - 32px)); max-height: calc(100dvh - 190px); overflow-y: auto; border: 1px solid #006b821c; border-radius: 24px; background: #fffdf8; box-shadow: 0 9px 30px #006b8218; color: #006b82; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s; }
+#faqPanel.open { visibility: visible; }
+#faqPanel .faq-head { padding: 16px; background: #fff5e6; align-items: center; }
+#faqPanel .faq-head h3 { font: 800 1.05rem 'Nunito', sans-serif; color: #006b82; }
+#faqPanel .faq-avatar { width: 32px; height: 32px; background: #f7c45b65; color: #006b82; box-shadow: none; font: 800 1.2rem 'Nunito', sans-serif; flex-shrink: 0; }
+#faqPanel .close-btn { color: #006b82; width: 40px; height: 40px; font-size: 1.5rem; }
+#faqPanel .faq-body { padding: 14px 16px 16px; }
+#faqPanel #faqMessages { max-height: 240px; overflow-y: auto; }
+#faqPanel .bot-msg, #faqPanel .user-msg { font-size: .83rem; line-height: 1.6; border-radius: 14px; }
+#faqPanel .bot-msg { background: #fff5e6; color: #315f6c; }
+#faqPanel .user-msg { background: #006b82; color: #fffdf8; margin-left: 24px; }
+#faqPanel .faq-options { grid-template-columns: 1fr 1fr; gap: 8px; }
+#faqPanel .faq-options button { min-height: 44px; border-radius: 12px; border-color: #006b821c; background: #fffdf8; color: #006b82; font: 700 .75rem 'Raleway', sans-serif; transition: background .2s; }
+#faqPanel .faq-options button:hover { background: #d9e8ee; }
+#faqPanel .faq-options button[data-faq="reset"] { background: #fff5e6; }
+#faqPanel .faq-whatsapp { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; padding: 9px 13px; border-radius: 999px; background: #006b82; color: #fffdf8; font-weight: 700; font-size: .76rem; text-decoration: none; }
+#faqPanel button:focus-visible, #faqPanel a:focus-visible, #faqFloatToggle:focus-visible { outline: 2px solid #006b82; outline-offset: 3px; }
+@media (max-width: 700px) {
+    .hero-image-controls { bottom: 70px; right: 7%; }
+    #faqPanel { right: 16px; bottom: 158px; max-height: calc(100dvh - 182px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-stage[data-hero-carousel] .hero-photo, #faqPanel, #faqFloatToggle { transition: none; }
+}

@@ -1,0 +1,114 @@
+﻿/* Haz tu pedido: scoped to the new section, using CHEESO's existing identity. */
+#pedido { --order-blue: #006b82; --order-cream: #fff5e6; --order-beige: #f6e2c4; --order-butter: #f7c45b; --order-pastel: #d9e8ee; position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; padding: 64px 0 118px; background: radial-gradient(ellipse at 0 25%, #f7c45b28, transparent 38%), radial-gradient(ellipse at 85% 90%, #f6e2c477, transparent 55%), var(--order-cream); color: var(--order-blue); scroll-margin-top: 150px; }
+#pedido::before { content: ''; position: absolute; z-index: -1; left: -150px; top: 18%; width: 480px; height: 76%; background: #d9e8ee70; border-radius: 44% 56% 64% 36% / 39% 44% 56% 61%; transform: rotate(-20deg); }
+#pedido::after { content: ''; position: absolute; z-index: -1; right: -130px; top: -120px; width: 430px; height: 340px; border-radius: 40% 60% 34% 66%; background: #f6e2c477; }
+#pedido .order-layout { display: grid; grid-template-columns: minmax(0, 22fr) minmax(0, 56fr) minmax(0, 22fr); grid-template-areas: 'phone heading cheese' 'phone options cheese' 'phone steps cheese' 'phone actions cheese'; align-content: start; align-items: center; gap: 24px; min-height: calc(100vh - 182px); max-width: 1800px; margin: auto; padding-left: 28px; }
+#pedido .order-heading { grid-area: heading; text-align: center; min-width: 0; }
+#pedido .order-heading h2 { position: relative; isolation: isolate; font: 900 clamp(2.7rem, 4.6vw, 5rem)/1.1 'Nunito', 'Arial Rounded MT Bold', sans-serif; letter-spacing: -.04em; color: var(--order-blue); margin-bottom: 22px; }
+#pedido .order-heading h2::before { content: ''; position: absolute; z-index: -1; inset: 7% -1% -10%; background: #f7c45b88; transform: rotate(-2deg); clip-path: polygon(2% 17%, 10% 6%, 23% 3%, 36% 8%, 50% 0, 66% 5%, 81% 8%, 96% 15%, 100% 30%, 97% 44%, 100% 59%, 96% 73%, 99% 91%, 84% 97%, 72% 94%, 57% 100%, 41% 93%, 25% 99%, 8% 93%, 0 84%, 3% 69%, 0 52%, 3% 35%); }
+#pedido .order-heading h2::after { content: ''; position: absolute; right: -17px; top: 12%; width: 16px; height: 42px; border-block: 5px solid var(--order-butter); transform: rotate(-25deg); }
+#pedido .order-heading > p { font: 500 clamp(1.5rem, 2vw, 2.1rem)/1.4 'Dancing Script', cursive; }
+#pedido .order-heading-heart { display: block; width: 26px; height: 28px; margin: 6px auto 0; color: var(--order-butter); }
+#pedido .order-heading-heart svg { width: 100%; height: 100%; }
+#pedido .order-phone-area { grid-area: phone; position: relative; align-self: center; padding: 20px 20px 112px 6px; }
+#pedido .order-phone { position: relative; max-width: 300px; min-height: 480px; margin: auto; border: 8px solid #203a42; border-radius: 36px; padding: 26px 0 18px; background: #fffdf8; box-shadow: 0 15px 28px #00617a20, inset 0 0 0 2px #ffffff; transform: rotate(-10deg); }
+#pedido .order-phone-camera { position: absolute; top: 8px; left: calc(50% - 35px); width: 70px; height: 9px; border-radius: 999px; background: #203a42; }
+#pedido .order-chat-heading { display: flex; align-items: center; gap: 10px; padding: 12px; border-bottom: 1px solid #006b8218; color: var(--order-blue); }
+#pedido .order-chat-avatar { width: 32px; height: 32px; display: grid; place-items: center; background: var(--order-pastel); border-radius: 50%; font-weight: 800; }
+#pedido .order-chat-heading > i { margin-left: auto; font-size: 1.4rem; }
+#pedido .order-chat { display: flex; flex-direction: column; gap: 24px; padding: 26px 12px; min-height: 310px; background: linear-gradient(135deg, #f6e2c455, #fff5e6); }
+#pedido .order-chat p { font: 500 .9rem/1.55 'Raleway', sans-serif; padding: 14px; border-radius: 14px; max-width: 92%; color: #315d69; box-shadow: 0 3px 9px #00617a08; }
+#pedido .order-chat-customer { align-self: end; background: #d9e8ee; border-top-right-radius: 3px !important; }
+#pedido .order-chat-brand { align-self: start; background: #fffdf8; border-top-left-radius: 3px !important; }
+#pedido .order-chat-caption { text-align: center; font-size: .66rem; color: #55757d; }
+#pedido .order-chat-input { display: flex; align-items: center; justify-content: space-between; padding: 12px; font-size: .72rem; color: #55757d; }
+#pedido .order-chat-input i { font-size: 1.35rem; color: var(--order-blue); }
+#pedido .order-sticky { position: absolute; bottom: 10px; left: 14px; width: 190px; padding: 20px; background: #f7c45bc9; color: var(--order-blue); box-shadow: 0 7px 18px #00617a10; transform: rotate(-13deg); font: 500 1.6rem/1.2 'Dancing Script', cursive; text-align: center; }
+#pedido .order-sticky > svg { display: block; width: 36px; height: 38px; margin: 8px auto 0; }
+#pedido .order-options { grid-area: options; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; min-width: 0; }
+#pedido .order-option { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 22px 14px; min-height: 230px; border-radius: 30px; background: #fffdf8c9; box-shadow: 0 8px 25px #00617a07; text-align: center; text-decoration: none; color: var(--order-blue); transition: transform .25s ease, box-shadow .25s ease; }
+#pedido .order-option:hover { transform: translateY(-3px); box-shadow: 0 12px 26px #00617a12; }
+#pedido .order-option-icon { width: 90px; height: 70px; display: grid; place-items: center; border-radius: 55% 45% 61% 39% / 49% 38% 62% 51%; background: #f7c45b40; margin-bottom: 13px; }
+#pedido .order-option-icon svg { width: 50px; height: 50px; }
+#pedido .order-option-icon i { font-size: 3rem; }
+#pedido .order-option h3 { font: 900 clamp(1.15rem, 1.5vw, 1.5rem)/1.25 'Nunito', sans-serif; margin-bottom: 12px; }
+#pedido .order-option > p { font-size: .94rem; line-height: 1.55; }
+#pedido .order-social-icons { display: flex; justify-content: center; align-items: center; gap: 5px; min-height: 70px; margin-bottom: 13px; }
+#pedido .order-social-icons a, #pedido .order-social-icons button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: #f7c45b30; color: var(--order-blue); font-size: 1.7rem; text-decoration: none; transition: background .25s, transform .25s; }
+#pedido .order-social-icons a:hover { background: var(--order-pastel); transform: translateY(-2px); }
+#pedido .order-social-icons button:disabled { opacity: .45; cursor: default; }
+#pedido .order-steps { grid-area: steps; min-width: 0; text-align: center; }
+#pedido .order-steps h3 { font: 700 clamp(1.5rem, 1.8vw, 2rem)/1.3 'Dancing Script', cursive; margin-bottom: 18px; }
+#pedido .order-steps ol { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+#pedido .order-steps li { position: relative; }
+#pedido .order-steps li:not(:last-child)::after { content: ''; position: absolute; top: 33px; right: -15px; width: 15px; height: 12px; background: #f7c45b; clip-path: polygon(0 40%, 65% 40%, 40% 0, 65% 0, 100% 50%, 65% 100%, 40% 100%, 65% 60%, 0 60%); }
+#pedido .order-step-icon { position: relative; width: 76px; height: 68px; display: grid; place-items: center; margin: 0 auto 9px; border-radius: 47% 53% 39% 61%; background: #d9e8ee88; }
+#pedido .order-step-icon svg { width: 44px; height: 44px; }
+#pedido .order-step-icon > span { position: absolute; top: 0; left: -6px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: #f7c45b; color: #006b82; font-weight: 800; font-size: .9rem; }
+#pedido .order-steps li > p { font-size: .75rem; font-weight: 700; line-height: 1.5; max-width: 150px; margin: auto; }
+#pedido .order-actions { grid-area: actions; display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; padding-block: 8px; }
+#pedido .order-button { display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 12px; min-height: 64px; padding: 14px 22px; border-radius: 999px; border: 2px solid var(--order-blue); color: var(--order-blue); font-size: 1rem; line-height: 1.3; font-weight: 700; text-decoration: none; text-align: center; transition: transform .25s, box-shadow .25s, background .25s; }
+#pedido .order-button-primary { background: var(--order-blue); color: #fffdf8; }
+#pedido .order-button-secondary { background: #fffdf8c9; }
+#pedido .order-button svg { width: 32px; height: 32px; flex-shrink: 0; }
+#pedido .order-button i { font-size: 2rem; }
+#pedido .order-button:hover { transform: translateY(-2px); box-shadow: 0 9px 22px #00617a20; }
+#pedido .order-button-secondary:hover { background: #d9e8ee; }
+#pedido .order-cheese { grid-area: cheese; position: relative; align-self: stretch; margin: 0; padding-top: 120px; min-height: 700px; }
+#pedido .order-cheese > img { width: 100%; height: calc(100% - 70px); min-height: 560px; object-fit: cover; object-position: 46% 50%; border-radius: 65% 0 0 52% / 40% 0 0 44%; -webkit-mask-image: linear-gradient(90deg, transparent, black 15%); mask-image: linear-gradient(90deg, transparent, black 15%); }
+#pedido .order-cheese > figcaption { position: absolute; top: 0; right: 12%; width: 178px; padding: 22px 18px 16px; background: #d9e8ee; color: var(--order-blue); border-radius: 47% 53% 44% 56% / 37% 42% 58% 63%; font: 500 1.7rem/1.15 'Dancing Script', cursive; transform: rotate(-9deg); text-align: center; }
+#pedido .order-cheese figcaption svg { display: block; width: 36px; height: 38px; margin: 8px auto 0; }
+#pedido .order-cheese-arrow { position: absolute; top: 190px; right: 14%; width: 82px; height: 130px; }
+#pedido .order-wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 110px; pointer-events: none; }
+#pedido .order-next { position: absolute; bottom: 20px; left: calc(50% - 28px); width: 56px; height: 56px; display: grid; place-items: center; background: var(--order-pastel); color: var(--order-blue); border-radius: 50%; transition: transform .25s; }
+#pedido .order-next svg { width: 30px; height: 30px; }
+#pedido .order-next:hover { transform: translateY(3px); }
+#pedido :is(a,button):focus-visible { outline: 3px solid var(--order-blue); outline-offset: 4px; }
+#pedido .order-reveal { transition: opacity .65s ease, translate .65s ease, transform .25s ease, box-shadow .25s ease; }
+#pedido .order-reveal:not(.is-visible) { opacity: 0; translate: 0 15px; }
+#pedido .order-phone-area.order-reveal:not(.is-visible) { translate: -20px 0; }
+#pedido .order-cheese.order-reveal:not(.is-visible) { translate: 20px 0; }
+#pedido .order-option:nth-child(2), #pedido .order-steps li:nth-child(2) { transition-delay: .06s; }
+#pedido .order-option:nth-child(3), #pedido .order-steps li:nth-child(3) { transition-delay: .12s; }
+#pedido .order-steps li:nth-child(4) { transition-delay: .18s; }
+@media (max-width: 1250px) {
+ #pedido .order-layout { grid-template-columns: minmax(0, 24fr) minmax(0, 76fr); grid-template-areas: 'phone heading' 'phone options' 'phone steps' 'phone actions' 'cheese cheese'; padding-inline: 28px; }
+ #pedido .order-heading h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+ #pedido .order-cheese { width: 70%; margin: 24px 0 0 auto; min-height: 430px; }
+ #pedido .order-cheese > img { height: 430px; min-height: 0; border-radius: 48% 28% 38% 42% / 43% 34% 54% 57%; object-position: 50% 42%; }
+ #pedido .order-cheese > figcaption { right: 8%; }
+ #pedido .order-phone { min-height: 450px; }
+ #pedido .order-phone-area { padding-right: 5px; }
+ #pedido .order-sticky { width: 155px; font-size: 1.3rem; }
+}
+@media (max-width: 850px) {
+ #pedido .order-layout { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'heading' 'options' 'phone' 'steps' 'actions' 'cheese'; padding-inline: 24px; gap: 28px; }
+ #pedido .order-phone-area { max-width: 340px; width: 100%; margin: 14px auto; }
+ #pedido .order-phone { max-width: 280px; }
+ #pedido .order-sticky { left: 0; width: 180px; font-size: 1.5rem; }
+ #pedido .order-cheese { width: 85%; }
+}
+@media (max-width: 600px) {
+ #pedido { padding: 48px 0 105px; }
+ #pedido .order-heading h2 { font-size: clamp(2.25rem, 9vw, 3.6rem); margin-bottom: 25px; }
+ #pedido .order-heading h2::after { right: -10px; width: 12px; }
+ #pedido .order-heading > p { font-size: 1.65rem; }
+ #pedido .order-options { grid-template-columns: 1fr; gap: 16px; }
+ #pedido .order-option { min-height: 0; padding: 22px; }
+ #pedido .order-option h3 { font-size: 1.5rem; }
+ #pedido .order-option > p { max-width: 300px; font-size: 1rem; }
+ #pedido .order-steps h3 { font-size: 1.8rem; }
+ #pedido .order-steps ol { grid-template-columns: 1fr; gap: 36px; }
+ #pedido .order-steps li > p { max-width: 250px; font-size: .85rem; }
+ #pedido .order-steps li:not(:last-child)::after { top: auto; bottom: -26px; right: calc(50% - 6px); transform: rotate(90deg); }
+ #pedido .order-actions { flex-direction: column; gap: 14px; }
+ #pedido .order-button { width: 100%; font-size: 1rem; padding-inline: 17px; }
+ #pedido .order-cheese { width: calc(100% + 24px); margin: 8px 0 0; min-height: 510px; }
+ #pedido .order-cheese > img { height: 440px; }
+ #pedido .order-cheese > figcaption { width: 150px; font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+ #pedido .order-reveal, #pedido .order-option, #pedido .order-button, #pedido .order-social-icons a, #pedido .order-next { transition: none; }
+ #pedido .order-reveal:not(.is-visible) { opacity: 1; translate: none; }
+ #pedido .order-option:hover, #pedido .order-button:hover, #pedido .order-social-icons a:hover, #pedido .order-next:hover { transform: none; }
+}

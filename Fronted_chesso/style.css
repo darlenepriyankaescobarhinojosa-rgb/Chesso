@@ -1,6 +1,4 @@
-/* =====================
-   🎨 PALETA DE COLORES ELEGANTE
-===================== */
+
 :root {
     --color-marron: #8B4513;
     --color-marron-claro: #A0522D;
@@ -17,9 +15,6 @@
     --instagram-gradient: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
 }
 
-/* =====================
-   🔄 RESET Y BASE ELEGANTE
-===================== */
 * {
     margin: 0;
     padding: 0;
@@ -38,9 +33,7 @@ body {
     overflow-x: hidden;
 }
 
-/* =====================
-   🔝 HEADER ELEGANTE MEJORADO
-===================== */
+
 .header-elegante {
     width: 100%;
     background-color: var(--color-blanco);
@@ -62,7 +55,6 @@ body {
     align-items: center;
 }
 
-/* Sección de la marca */
 .brand-section {
     display: flex;
     align-items: center;
@@ -303,9 +295,7 @@ body {
     border-color: var(--color-blanco);
 }
 
-/* =====================
-   👤 SECCIÓN NOSOTROS ELEGANTE
-===================== */
+
 .seccion-nosotros-elegante {
     padding: 6rem 2rem;
     background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-crema) 100%);
@@ -353,7 +343,7 @@ body {
     opacity: 0.8;
 }
 
-/* Contenido Nosotros */
+
 .contenido-familiar {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -412,7 +402,7 @@ body {
     font-weight: 400;
 }
 
-/* Imagen Nosotros */
+
 .imagen-nosotros {
     position: relative;
 }

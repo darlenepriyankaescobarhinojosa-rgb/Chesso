@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEESO - Creado con pasión, disfrutado con amor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@500&family=Lora:wght@400;500&family=Playfair+Display:wght@500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        :root {
+            --marron: #6f3f1f;
+            --marron-profundo: #2f1d13;
+            --cacao: #4f2d19;
+            --dorado: #c99241;
+            --dorado-suave: #ead2aa;
+            --crema: #fff8eb;
+            --marfil: #fffcf4;
+            --salvia: #66735a;
+            --gris: #66594d;
+            --linea: rgba(111, 63, 31, 0.16);
+            --blanco: #fff;
+            --whatsapp: #25d366;
+            --sombra: 0 22px 55px rgba(47, 29, 19, 0.15);
+            --radio: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Raleway", sans-serif;
+            color: var(--gris);
+            background: var(--marfil);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+        body.modal-open { overflow: hidden; }
+        img { max-width: 100%; display: block; }
+        button, input, select, textarea { font: inherit; }
+        button { cursor: pointer; }
+        a { color: inherit; }
+
+        .header-elegante {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 1000;
+            background: rgba(255, 252, 244, 0.94);
+            border-bottom: 1px solid var(--linea);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 4px 22px rgba(47, 29, 19, .05);
+            transition: box-shadow .3s ease, background .3s ease;
+        }
+        .header-elegante::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+        }
+        .header-elegante.scrolled {
+            background: rgba(255, 252, 244, .98);
+            box-shadow: 0 12px 34px rgba(47, 29, 19, .1);
+        }
+        .header-contenedor {
+            max-width: 1240px;
+            margin: 0 auto;
+            min-height: 72px;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+        .brand-section { display: flex; align-items: center; gap: 10px; min-width: 188px; flex-shrink: 0; }
+        .brand-logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--dorado);
+            padding: 3px;
+            background: var(--blanco);
+            box-shadow: 0 8px 18px rgba(47, 29, 19, .1);
+        }
+        .marca-principal {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.42rem, 2.1vw, 1.8rem);
+            line-height: 1;
+            color: var(--marron);
+            letter-spacing: 0;
+        }
+        .tagline-refinado {
+            font-family: "Cormorant Garamond", serif;
+            font-size: .78rem;
+            font-style: italic;
+            color: var(--salvia);
+            margin-top: 2px;
+            max-width: 190px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .main-nav-refinado { display: flex; align-items: center; justify-content: center; gap: 6px; flex: 1; min-width: 0; }
+        .nav-link-elegante {
+            position: relative;
+            text-decoration: none;
+            color: var(--cacao);
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .035em;
+            text-transform: uppercase;
+            padding: 9px 10px;
+            border-radius: 999px;
+            transition: color .22s ease, background .22s ease, transform .22s ease;
+        }
+        .nav-link-elegante::after {
+            display: none;
+        }
+        .nav-link-elegante:hover,
+        .nav-link-elegante.active {
+            color: var(--marron);
+            background: rgba(201, 146, 65, .13);
+            transform: translateY(-1px);
+        }
+        .nav-action-button {
+            border: 1px solid var(--linea);
+            border-radius: 999px;
+            background: var(--crema);
+            color: var(--marron);
+            padding: 10px 13px;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+        .nav-action-button { transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+        .nav-action-button:hover { background: var(--blanco); box-shadow: 0 12px 24px rgba(47,29,19,.1); transform: translateY(-2px); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding-left: 14px;
+            border-left: 1px solid rgba(111, 63, 31, .13);
+            flex-shrink: 0;
+        }
+        .icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--linea);
+            background: var(--blanco);
+            color: var(--marron);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(47,29,19,.12); background: var(--crema); }
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -5px;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 5px;
+            border-radius: 999px;
+            background: var(--dorado);
+            color: var(--marron-profundo);
+            font-size: .72rem;
+            font-weight: 800;
+            display: grid;
+            place-items: center;
+        }
+        .auth-chip {
+            border: 1px solid var(--linea);
+            border-radius: 999px;
+            background: var(--blanco);
+            color: var(--marron);
+            padding: 9px 13px;
+            font-size: .78rem;
+            font-weight: 700;
+            transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+        }
+        .auth-chip:hover {
+            background: var(--crema);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(47,29,19,.09);
+        }
+        .menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--linea);
+            border-radius: 50%;
+            background: var(--blanco);
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-mobile span { width: 19px; height: 2px; background: var(--marron); transition: .25s ease; }
+        .menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-mobile.active span:nth-child(2) { opacity: 0; }
+        .menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .slider {
+            position: relative;
+            height: min(760px, 86vh);
+            min-height: 560px;
+            margin-top: 72px;
+            overflow: hidden;
+            background: var(--marron-profundo);
+        }
+        .slides, .slide { position: absolute; inset: 0; }
+        .slide { opacity: 0; transition: opacity 1s ease, transform 4s ease; transform: scale(1.02); }
+        .slide.active { opacity: 1; transform: scale(1); }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 18% 68%, rgba(201,146,65,.28), transparent 28%),
+                linear-gradient(90deg, rgba(47,29,19,.84), rgba(47,29,19,.43) 50%, rgba(47,29,19,.16));
+        }
+        .slide-text {
+            position: absolute;
+            left: max(7vw, 28px);
+            bottom: 15%;
+            z-index: 2;
+            max-width: 720px;
+            color: var(--crema);
+            padding: clamp(18px, 3vw, 32px);
+            border-left: 2px solid rgba(201,146,65,.72);
+            background: linear-gradient(90deg, rgba(47,29,19,.44), rgba(47,29,19,.08));
+            backdrop-filter: blur(3px);
+            animation: heroTextIn .9s ease .2s both;
+        }
+        .slide-text h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.6rem, 7vw, 5.8rem);
+            line-height: .98;
+            letter-spacing: 0;
+            margin-bottom: 18px;
+        }
+        .slide-text p { font-family: "Lora", serif; font-size: clamp(1.05rem, 2vw, 1.45rem); max-width: 520px; }
+        @keyframes heroTextIn {
+            from { opacity: 0; transform: translateY(28px); filter: blur(4px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.35);
+            background: rgba(255,255,255,.15);
+            color: var(--blanco);
+            font-size: 2rem;
+            backdrop-filter: blur(8px);
+        }
+        .slide-btn:hover { background: rgba(201,146,65,.78); }
+        .slide-btn.prev { left: 24px; }
+        .slide-btn.next { right: 24px; }
+        .slide-indicators {
+            position: absolute;
+            z-index: 4;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.55);
+            border: 1px solid rgba(255,255,255,.85);
+            cursor: pointer;
+        }
+        .indicator.active { background: var(--dorado); transform: scale(1.25); }
+
+        section { scroll-margin-top: 110px; }
+        .seccion-nosotros-elegante, .seccion-productos-elegante, .seccion-compromiso-elegante, .seccion-vela {
+            padding: clamp(72px, 9vw, 120px) 24px;
+        }
+        .seccion-nosotros-elegante, .seccion-compromiso-elegante { background: linear-gradient(180deg, var(--marfil), var(--crema)); }
+        .seccion-productos-elegante, .seccion-vela { background: var(--blanco); }
+        .contenedor-nosotros, .contenedor-compromiso, .contenedor-vela { max-width: 1200px; margin: 0 auto; }
+        .encabezado-nosotros, .cabecera-productos, .cabecera-compromiso, .cabecera-vela { text-align: center; margin-bottom: 50px; }
+        .titulo-elegante, .titulo-principal, .titulo-compromiso, .titulo-vela {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.15rem, 4vw, 3.55rem);
+            color: var(--marron-profundo);
+            line-height: 1.08;
+            letter-spacing: 0;
+        }
+        .subtitulo-refinado, .subtitulo-compromiso, .subtitulo-vela {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--salvia);
+            font-size: 1.35rem;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        .separador-queso, .separador-quesero, .separador-elegante {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 22px;
+        }
+        .linea-oro, .linea-separadora, .linea-izquierda, .linea-derecha {
+            width: 76px;
+            height: 1px;
+            background: var(--dorado);
+        }
+        .contenido-familiar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(36px, 7vw, 86px);
+            align-items: center;
+        }
+        .destacado-fino {
+            font-family: "Lora", serif;
+            color: var(--marron-profundo);
+            font-size: 1.38rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+        .marca-especial { color: var(--marron); font-weight: 700; }
+        .parrafo-delicado { font-family: "Lora", serif; margin-bottom: 18px; text-align: justify; }
+        .firma-familiar { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--linea); text-align: center; }
+        .linea-firma { display: block; width: 60px; height: 1px; background: var(--dorado); margin: 0 auto 10px; }
+        .texto-firma { font-family: "Dancing Script", cursive; color: var(--marron); font-size: 1.55rem; }
+        .imagen-nosotros { position: relative; }
+        .imagen-refinada { border-radius: var(--radio); box-shadow: var(--sombra); aspect-ratio: 4/3; object-fit: cover; }
+        .marco-decorativo {
+            position: absolute;
+            inset: 18px -18px -18px 18px;
+            border: 1px solid var(--dorado);
+            border-radius: var(--radio);
+            z-index: -1;
+        }
+
+        .seccion-productos-elegante {
+            background: linear-gradient(180deg, var(--marfil) 0%, var(--crema) 100%);
+        }
+        .cabecera-productos {
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cabecera-productos .titulo-principal {
+            font-size: clamp(2.35rem, 5vw, 4rem);
+            font-weight: 700;
+        }
+        .cabecera-productos .subtitulo-refinado {
+            font-size: clamp(1.1rem, 2vw, 1.45rem);
+            color: rgba(102,89,77,.82);
+        }
+        .cabecera-productos .separador-quesero {
+            margin-top: 24px;
+        }
+        .selector-venta {
+            display: none;
+        }
+        .opciones-venta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .btn-venta {
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--marron);
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+        .btn-venta.active { background: var(--blanco); box-shadow: 0 8px 20px rgba(47,29,19,.1); }
+        .desc-venta { color: var(--salvia); font-size: .8rem; font-weight: 600; }
+        .grid-productos {
+            max-width: 1200px;
+            margin: 0 auto 58px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(22px, 3vw, 34px);
+        }
+        .card-producto, .card-compromiso, .vela-card {
+            background: var(--blanco);
+            border: 1px solid var(--linea);
+            border-radius: var(--radio);
+            box-shadow: 0 14px 34px rgba(47,29,19,.09);
+            overflow: hidden;
+            transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+        }
+        .card-producto:hover, .card-compromiso:hover, .vela-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 62px rgba(47,29,19,.16);
+            border-color: rgba(201,146,65,.55);
+        }
+        .card-producto {
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+            padding: 0;
+            border-radius: 12px;
+            background: rgba(255,255,255,.92);
+            border: 1px solid rgba(111,63,31,.1);
+            box-shadow: 0 16px 38px rgba(47,29,19,.08);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+        .card-producto:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 54px rgba(47,29,19,.13);
+            border-color: rgba(201,146,65,.34);
+        }
+        .card-producto.destacado { position: relative; }
+        .badge-mas-vendido {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 4;
+            background: rgba(255,255,255,.88);
+            color: var(--marron);
+            padding: 7px 11px;
+            border-radius: 999px;
+            border: 1px solid rgba(201,146,65,.38);
+            font-size: .7rem;
+            font-weight: 900;
+            letter-spacing: .05em;
+            box-shadow: 0 8px 18px rgba(47,29,19,.08);
+            backdrop-filter: blur(10px);
+        }
+        .imagen-producto {
+            height: auto;
+            aspect-ratio: 1 / 1;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            border-radius: 0;
+            isolation: auto;
+            background: var(--crema);
+        }
+        .imagen-producto::before { display: none; }
+        .imagen-producto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: none;
+            transition: transform .45s ease;
+        }
+        .card-producto:hover .imagen-producto img {
+            transform: scale(1.045);
+            box-shadow: none;
+        }
+        .overlay-tiempo {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            bottom: auto;
+            border-radius: 999px;
+            background: rgba(255,255,255,.88);
+            color: var(--marron);
+            border: 1px solid rgba(201,146,65,.34);
+            padding: 7px 11px;
+            font-size: .72rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 18px rgba(47,29,19,.08);
+        }
+        .info-producto {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .nombre-queso {
+            font-family: "Playfair Display", serif;
+            color: var(--marron-profundo);
+            font-size: clamp(1.55rem, 2vw, 1.95rem);
+            font-weight: 700;
+            line-height: 1.12;
+            margin-bottom: 10px;
+        }
+        .descripcion-queso {
+            font-family: "Lora", serif;
+            color: rgba(102,89,77,.82);
+            margin-bottom: 18px;
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .detalles-producto {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 16px;
+        }
+        .dato-queso {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            border-radius: 999px;
+            background: rgba(255,248,235,.82);
+            color: var(--marron);
+            border: 1px solid rgba(111,63,31,.1);
+            padding: 6px 10px;
+            font-size: .78rem;
+            font-weight: 800;
+        }
+        .peso-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 22px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+        }
+        .peso-option {
+            border: 1px solid rgba(111,63,31,.14);
+            border-radius: 999px;
+            background: var(--marfil);
+            color: var(--marron);
+            padding: 8px 15px;
+            min-width: 68px;
+            font-size: .8rem;
+            font-weight: 900;
+            position: relative;
+            transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+        }
+        .peso-option.active, .peso-option:hover {
+            border-color: rgba(201,146,65,.7);
+            background: var(--marron);
+            color: var(--crema);
+            box-shadow: 0 9px 18px rgba(47,29,19,.16);
+            transform: translateY(-2px);
+        }
+        .peso-option.active::after { display: none; }
+        .precio-container {
+            border-top: 0;
+            margin-top: auto;
+            padding-top: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .precio-info {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .precio-actual {
+            font-size: clamp(2rem, 2.8vw, 2.35rem);
+            line-height: 1;
+            color: var(--marron-profundo);
+            font-weight: 900;
+        }
+        .unidad-venta {
+            color: var(--salvia);
+            font-size: .88rem;
+            font-weight: 800;
+        }
+        .precio-kilo {
+            color: rgba(102,89,77,.72);
+            font-size: .76rem;
+            max-width: 104px;
+            text-align: right;
+        }
+        .acciones-producto {
+            display: grid;
+            grid-template-columns: 1fr 40px;
+            gap: 9px;
+            margin-top: 18px;
+            align-items: center;
+        }
+        .acciones-producto .add-to-cart {
+            border-radius: 999px;
+            min-height: 48px;
+            background: var(--marron-profundo);
+            color: var(--crema);
+            box-shadow: 0 12px 24px rgba(47,29,19,.18);
+            width: 100%;
+        }
+        .acciones-producto .add-to-cart:hover {
+            background: var(--marron);
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px rgba(47,29,19,.24);
+        }
+        .acciones-producto .consult-product {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            padding: 0;
+            border-radius: 50%;
+            background: rgba(37,211,102,.12);
+            color: var(--whatsapp);
+            border: 1px solid rgba(37,211,102,.22);
+            box-shadow: none;
+            font-size: 0;
+        }
+        .acciones-producto .consult-product .icono-whatsapp {
+            font-size: 1.05rem;
+        }
+        .acciones-producto .consult-product:hover {
+            background: var(--whatsapp);
+            color: var(--blanco);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(37,211,102,.22);
+        }
+        .btn-primary, .btn-secondary, .btn-whatsapp-producto, .btn-whatsapp-grande, .btn-llamada, .btn-whatsapp-footer {
+            border: 0;
+            border-radius: var(--radio);
+            padding: 13px 16px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--marron), var(--cacao));
+            color: var(--crema);
+        }
+        .btn-secondary {
+            background: var(--crema);
+            color: var(--marron);
+            border: 1px solid var(--linea);
+        }
+        .btn-whatsapp-producto, .btn-whatsapp-grande, .btn-whatsapp-footer { background: var(--whatsapp); color: var(--blanco); }
+        .btn-llamada { background: transparent; border: 1px solid rgba(255,255,255,.7); color: var(--blanco); }
+        .btn-primary:hover, .btn-secondary:hover, .btn-whatsapp-producto:hover, .btn-whatsapp-grande:hover, .btn-llamada:hover, .btn-whatsapp-footer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(47,29,19,.14);
+        }
+
+        .servicios-destacados {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            padding: 18px;
+            border: 1px solid var(--linea);
+            border-radius: var(--radio);
+            background: var(--crema);
+        }
+        .servicio-item {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 18px;
+            border-radius: var(--radio);
+            background: var(--blanco);
+        }
+        .servicio-icono, .icono-grande { font-size: 2.1rem; }
+        .servicio-texto h4, .titulo-item {
+            font-family: "Playfair Display", serif;
+            color: var(--marron-profundo);
+            font-size: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .vela-card {
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            gap: 0;
+            align-items: stretch;
+            position: relative;
+            overflow: visible;
+        }
+        .vela-card::before {
+            content: "";
+            position: absolute;
+            inset: -18px;
+            z-index: -1;
+            border-radius: 18px;
+            background: radial-gradient(circle at 28% 42%, rgba(201,146,65,.5), transparent 38%),
+                        radial-gradient(circle at 72% 58%, rgba(255,248,235,.9), transparent 34%);
+            filter: blur(20px);
+            opacity: .82;
+            animation: velaGlow 3.8s ease-in-out infinite alternate;
+        }
+        .vela-media {
+            min-height: 420px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(111,63,31,.12), rgba(201,146,65,.22)), url("img/queso-molde.jpg") center/cover;
+        }
+        .vela-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(115deg, transparent 8%, rgba(255,255,255,.34) 36%, transparent 58%);
+            transform: translateX(-120%);
+            animation: velaShine 4.8s ease-in-out infinite;
+        }
+        @keyframes velaGlow {
+            from { opacity: .48; transform: scale(.98); }
+            to { opacity: .9; transform: scale(1.02); }
+        }
+        @keyframes velaShine {
+            0%, 35% { transform: translateX(-120%); }
+            70%, 100% { transform: translateX(120%); }
+        }
+        .vela-info { padding: clamp(28px, 5vw, 56px); }
+        .vela-badge {
+            display: inline-flex;
+            border-radius: 999px;
+            background: var(--crema);
+            color: var(--marron);
+            padding: 7px 12px;
+            font-size: .8rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+        .vela-info h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--marron-profundo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.08;
+            margin-bottom: 16px;
+        }
+        .vela-features { list-style: none; display: grid; gap: 10px; margin: 22px 0; }
+        .vela-features li {
+            padding-left: 28px;
+            position: relative;
+            color: var(--cacao);
+            font-weight: 600;
+        }
+        .vela-features li::before { content: "✦"; position: absolute; left: 0; color: var(--dorado); }
+        .vela-price { font-size: 2.15rem; color: var(--marron); font-weight: 900; margin-bottom: 18px; }
+
+        .grid-compromisos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 46px;
+        }
+        .card-compromiso { padding: 28px 22px; text-align: center; }
+        .card-compromiso.destacado { background: var(--crema); border-color: var(--dorado); }
+        .texto-compromiso { font-family: "Lora", serif; margin-top: 12px; }
+        .texto-compromiso strong { color: var(--marron); }
+        .cta-compromiso {
+            background: linear-gradient(135deg, var(--marron-profundo), var(--marron));
+            color: var(--crema);
+            border-radius: var(--radio);
+            padding: clamp(28px, 6vw, 60px);
+            text-align: center;
+            box-shadow: var(--sombra);
+        }
+        .cta-titulo { font-family: "Playfair Display", serif; font-size: clamp(1.8rem, 3vw, 2.45rem); color: var(--blanco); }
+        .cta-texto { font-family: "Lora", serif; margin: 8px 0 24px; }
+        .cta-botones { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+        .footer-elegante {
+            background: linear-gradient(135deg, var(--marron-profundo), var(--cacao));
+            color: var(--crema);
+            padding: 88px 24px 34px;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-elegante::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 0%, rgba(201,146,65,.18), transparent 32%),
+                        linear-gradient(180deg, rgba(255,255,255,.04), transparent 28%);
+            pointer-events: none;
+        }
+        .footer-contenido { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .footer-superior {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1.1fr;
+            gap: 46px;
+            padding-bottom: 10px;
+        }
+        .marca-delicada { font-family: "Playfair Display", serif; font-size: 2.1rem; color: var(--crema); }
+        .eslogan-refinado, .elaborado-con-amor { font-family: "Cormorant Garamond", serif; color: var(--dorado-suave); font-style: italic; }
+        .numero-grande, .contacto-whatsapp { display: flex; gap: 10px; align-items: center; margin-top: 18px; }
+        .numero-telefono { color: var(--crema); text-decoration: none; font-weight: 800; font-size: 1.15rem; }
+        .horario-delicado, .texto-legal-delicado, .copyright-delicado { color: rgba(255,248,235,.72); font-size: .92rem; }
+        .redes-sociales { display: flex; gap: 10px; margin-top: 18px; }
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.09);
+            border: 1px solid rgba(255,255,255,.14);
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+        }
+        .titulo-columna { color: var(--blanco); font-weight: 800; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(234,210,170,.25); }
+        .lista-delicada { list-style: none; display: grid; gap: 9px; }
+        .link-footer, .link-legal { color: rgba(255,248,235,.72); text-decoration: none; }
+        .link-footer:hover, .link-legal:hover { color: var(--dorado-suave); }
+        .contacto-whatsapp {
+            background: rgba(37,211,102,.12);
+            border: 1px solid rgba(37,211,102,.24);
+            border-radius: var(--radio);
+            padding: 14px;
+        }
+        .separador-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 34px 0;
+        }
+        .linea-quesera { width: 100px; height: 1px; background: rgba(234,210,170,.42); }
+        .cita-footer { text-align: center; margin-bottom: 28px; }
+        .cita-delicada { font-family: "Cardo", serif; font-style: italic; font-size: 1.28rem; }
+        .footer-inferior {
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .enlaces-legales { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .botones-flotantes {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 900;
+        }
+        .btn-floating {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            color: var(--blanco);
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            font-size: 1.45rem;
+            box-shadow: 0 12px 28px rgba(47,29,19,.22);
+            transition: transform .2s ease;
+            border: 0;
+        }
+        .btn-floating:hover { transform: translateY(-4px); }
+        .whatsapp { background: var(--whatsapp); }
+        .instagram { background: linear-gradient(45deg, #405de6, #833ab4, #e1306c, #fd1d1d); }
+        .faq-float { background: var(--marron); }
+
+        .drawer, .modal-backdrop, .faq-panel {
+            position: fixed;
+            z-index: 1300;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+        .drawer.open, .modal-backdrop.open, .faq-panel.open { opacity: 1; pointer-events: auto; }
+        .modal-backdrop {
+            inset: 0;
+            background: rgba(47,29,19,.58);
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .modal-card {
+            width: min(500px, 100%);
+            max-height: 92vh;
+            overflow: auto;
+            background: var(--blanco);
+            border-radius: 18px;
+            box-shadow: 0 30px 80px rgba(47,29,19,.28);
+            padding: 30px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,.74);
+        }
+        .modal-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--marron), var(--dorado), var(--dorado-suave));
+        }
+        .modal-head, .drawer-head, .faq-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .modal-head h3, .drawer-head h3, .faq-head h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--marron-profundo);
+            font-size: 1.75rem;
+        }
+        .modal-head {
+            margin-bottom: 22px;
+        }
+        .modal-head h3 {
+            font-size: 2rem;
+            line-height: 1.05;
+        }
+        .close-btn {
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--linea);
+            border-radius: 50%;
+            background: var(--blanco);
+            color: var(--marron);
+            font-size: 1.2rem;
+        }
+        .tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 22px;
+            background: var(--crema);
+            padding: 6px;
+            border-radius: 999px;
+            border: 1px solid rgba(111,63,31,.08);
+        }
+        .tab-btn {
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--marron);
+            padding: 11px 12px;
+            font-weight: 900;
+            letter-spacing: .02em;
+        }
+        .tab-btn.active { background: var(--blanco); box-shadow: 0 8px 18px rgba(47,29,19,.09); }
+        .form-grid { display: grid; gap: 13px; }
+        .form-grid label {
+            display: grid;
+            gap: 7px;
+            color: var(--marron-profundo);
+            font-weight: 900;
+            font-size: .72rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .form-grid input, .form-grid textarea, .form-grid select {
+            width: 100%;
+            border: 1px solid var(--linea);
+            border-radius: 14px;
+            padding: 13px 14px;
+            color: var(--marron-profundo);
+            background: var(--marfil);
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .form-grid input:focus, .form-grid textarea:focus, .form-grid select:focus {
+            border-color: rgba(201,146,65,.72);
+            background: var(--blanco);
+            box-shadow: 0 0 0 4px rgba(201,146,65,.13);
+        }
+        .form-grid .btn-primary {
+            width: 100%;
+            min-height: 48px;
+            border-radius: 999px;
+            margin-top: 4px;
+            background: var(--marron-profundo);
+            box-shadow: 0 14px 28px rgba(47,29,19,.18);
+        }
+        .auth-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .auth-switch {
+            margin-top: 14px;
+            color: rgba(102,89,77,.9);
+            text-align: center;
+            font-size: .92rem;
+        }
+        .auth-switch button {
+            border: 0;
+            background: transparent;
+            color: var(--marron);
+            font-weight: 900;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .form-grid textarea { min-height: 82px; resize: vertical; }
+        .auth-status { min-height: 22px; color: var(--salvia); font-weight: 800; margin-top: 12px; text-align: center; }
+        .drawer {
+            top: 0;
+            right: 0;
+            width: min(430px, 100%);
+            height: 100vh;
+            background: var(--blanco);
+            box-shadow: -20px 0 60px rgba(47,29,19,.18);
+            transform: translateX(100%);
+            padding: 24px;
+            overflow: auto;
+        }
+        .drawer.open { transform: translateX(0); }
+        .cart-items { display: grid; gap: 12px; margin: 20px 0; }
+        .cart-empty { padding: 24px; background: var(--crema); border-radius: var(--radio); text-align: center; }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            border: 1px solid var(--linea);
+            border-radius: var(--radio);
+            padding: 12px;
+        }
+        .cart-item h4 { color: var(--marron-profundo); }
+        .qty-control { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+        .qty-control button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--linea);
+            background: var(--crema);
+            color: var(--marron);
+            font-weight: 900;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--linea);
+            padding-top: 18px;
+            margin-top: 8px;
+            font-size: 1.25rem;
+            color: var(--marron-profundo);
+            font-weight: 900;
+        }
+        .checkout-note { font-size: .88rem; color: var(--salvia); margin: 10px 0 16px; }
+        .checkout-login {
+            display: none;
+            margin-top: 16px;
+            padding: 18px;
+            border: 1px dashed rgba(201,146,65,.65);
+            border-radius: var(--radio);
+            background: linear-gradient(135deg, var(--crema), var(--marfil));
+            text-align: center;
+        }
+        .checkout-login p { margin-bottom: 12px; color: var(--marron-profundo); font-weight: 700; }
+        .cart-auth-required #checkoutForm { display: none; }
+        .cart-auth-required .checkout-login { display: block; }
+        .faq-panel {
+            right: 20px;
+            bottom: 88px;
+            width: min(360px, calc(100vw - 40px));
+            background: var(--blanco);
+            border: 1px solid var(--linea);
+            border-radius: var(--radio);
+            box-shadow: 0 24px 58px rgba(47,29,19,.2);
+            transform: translateY(16px);
+            overflow: hidden;
+        }
+        .faq-panel.open { transform: translateY(0); }
+        .faq-head {
+            padding: 16px 16px 0;
+            background: linear-gradient(180deg, var(--crema), var(--blanco));
+        }
+        .faq-title-wrap { display: flex; align-items: center; gap: 10px; }
+        .faq-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--dorado-suave);
+            box-shadow: inset 0 0 0 1px rgba(111,63,31,.12), 0 8px 18px rgba(47,29,19,.12);
+        }
+        .faq-body { padding: 0 16px 16px; }
+        .bot-msg, .user-msg {
+            padding: 11px 13px;
+            border-radius: var(--radio);
+            margin-bottom: 9px;
+            font-size: .92rem;
+        }
+        .bot-msg { background: var(--crema); color: var(--marron-profundo); }
+        .user-msg { background: var(--marron); color: var(--crema); margin-left: 42px; }
+        .typing-msg {
+            display: inline-flex;
+            gap: 4px;
+            align-items: center;
+            width: auto;
+        }
+        .typing-msg span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--dorado);
+            animation: typingPulse .85s ease-in-out infinite;
+        }
+        .typing-msg span:nth-child(2) { animation-delay: .12s; }
+        .typing-msg span:nth-child(3) { animation-delay: .24s; }
+        @keyframes typingPulse {
+            0%, 100% { opacity: .35; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-3px); }
+        }
+        .faq-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+        .faq-options button {
+            border: 1px solid var(--linea);
+            border-radius: var(--radio);
+            background: var(--marfil);
+            color: var(--marron);
+            padding: 10px;
+            font-weight: 800;
+        }
+        .faq-options button[data-faq="reset"] { grid-column: 1 / -1; background: var(--crema); }
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            z-index: 2000;
+            transform: translateX(-50%) translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            background: var(--marron-profundo);
+            color: var(--crema);
+            border-radius: 999px;
+            padding: 12px 18px;
+            box-shadow: var(--sombra);
+            transition: .25s ease;
+            font-weight: 700;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .fade-in { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1080px) {
+            .main-nav-refinado {
+                position: fixed;
+                top: 72px;
+                right: -100%;
+                width: min(320px, 86vw);
+                height: calc(100vh - 72px);
+                background: var(--marfil);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                padding: 28px;
+                border-left: 1px solid var(--linea);
+                box-shadow: -20px 20px 50px rgba(47,29,19,.12);
+                transition: right .25s ease;
+            }
+            .nav-link-elegante {
+                padding: 12px 14px;
+                font-size: .82rem;
+            }
+            .main-nav-refinado.active { right: 0; }
+            .menu-mobile { display: flex; }
+            .grid-compromisos { grid-template-columns: repeat(2, 1fr); }
+            .footer-superior { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 760px) {
+            .header-contenedor { min-height: 66px; padding: 0 14px; }
+            .brand-section { min-width: 0; }
+            .brand-logo { width: 42px; height: 42px; }
+            .marca-principal { font-size: 1.34rem; }
+            .tagline-refinado { display: none; }
+            .auth-chip { display: none; }
+            .header-actions { padding-left: 0; border-left: 0; }
+            .main-nav-refinado { top: 66px; height: calc(100vh - 66px); }
+            .slider { margin-top: 66px; min-height: 460px; height: 70vh; }
+            .slide-overlay { background: linear-gradient(180deg, rgba(47,29,19,.4), rgba(47,29,19,.78)); }
+            .slide-text { left: 22px; right: 22px; bottom: 16%; text-align: left; }
+            .slide-btn { display: none; }
+            .contenido-familiar, .grid-productos, .vela-card { grid-template-columns: 1fr; }
+            .servicios-destacados, .grid-compromisos, .footer-superior { grid-template-columns: 1fr; }
+            .selector-venta { border-radius: var(--radio); }
+            .opciones-venta, .acciones-producto, .peso-selector, .faq-options { grid-template-columns: 1fr; }
+            .vela-media { min-height: 280px; }
+            .footer-inferior { flex-direction: column; }
+            .botones-flotantes { right: 14px; bottom: 14px; }
+            .btn-floating { width: 48px; height: 48px; }
+        }
+    </style>
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="refinement.css">
+    <link rel="stylesheet" href="cheeso-hero.css">
+    <link rel="stylesheet" href="cheeso-products.css">
+    <script src="products.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="story.css">
+    <script src="social-links.js" defer></script>
+    <script src="story.js" defer></script>
+    <script src="hero.js" defer></script>
+    <link rel="stylesheet" href="order.css">
+    <script src="order.js" defer></script>
+    <link rel="stylesheet" href="contact.css">
+    <script src="contact.js" defer></script>
+    <script src="data/ubigeo.js" defer></script>
+    <script src="checkout.js" defer></script>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="process.css">
+    <script src="process.js" defer></script>
+    <link rel="stylesheet" href="targeted-updates.css">
+    <script src="hero-carousel.js" defer></script>
+    <script src="faq.js" defer></script>
+</head>
+<body>
+    <svg class="cheeso-svg-definitions" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+        <clipPath id="cheeso-photo-clip" clipPathUnits="objectBoundingBox"><path d="M.16,0 H1 V1 H.1 C.03,.94 .12,.88 .065,.8 S.015,.66 .04,.58 S.005,.47 .045,.38 S.055,.27 .095,.19 S.1,.07 .16,0Z"/></clipPath>
+        <filter id="cheeso-logo-ink" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -1 0 0 0 1"/><feComponentTransfer result="logo-alpha"><feFuncA type="table" tableValues="0 0 0 0.15 1 1"/></feComponentTransfer><feFlood flood-color="#00617a"/><feComposite operator="in" in2="logo-alpha"/></filter>
+    </defs></svg>
+    <header class="header-elegante">
+        <div class="header-contenedor">
+            <div class="brand-section">
+                <div class="brand-logo-window"><img class="brand-logo" src="img/logo.png" alt="CHEESO Logo"></div>
+                <div class="brand-name">
+                    <h2 class="marca-principal">CHEESO</h2>
+                    <p class="tagline-refinado">Creado con pasión, disfrutado con amor</p>
+                </div>
+            </div>
+            <nav class="main-nav-refinado" id="mainNav" aria-label="Navegación principal">
+                <a href="#inicio" class="nav-link-elegante active" aria-current="page">Inicio</a>
+                <a href="#nosotros" class="nav-link-elegante">Nuestra historia</a>
+                <a href="#productos" class="nav-link-elegante">Nuestros quesos</a>
+                <a href="#pedido" class="nav-link-elegante">Haz tu pedido</a>
+                <a href="#contacto" class="nav-link-elegante">Contacto</a>
+            </nav>
+            <div class="header-actions">
+                <a class="icon-btn social-header" data-social="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de CHEESO"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a class="icon-btn social-header" data-social="tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok de CHEESO"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                <a class="icon-btn social-header" data-social="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de CHEESO"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <button class="auth-chip" id="authButton" type="button" hidden>Ingresar</button>
+                <button class="icon-btn" id="cartButton" type="button" aria-label="Abrir carrito">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="cartCount" aria-live="polite" aria-atomic="true">0</span>
+                </button>
+                <button class="menu-mobile" id="menuMobile" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="premium-hero" aria-labelledby="hero-title">
+        <div class="hero-layout">
+            <div class="hero-copy">
+                <svg class="hero-title-rays" viewBox="0 0 80 100" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" aria-hidden="true"><path d="M25 18 43 30M12 57l27-4M43 88l12-19"/></svg>
+                <h1 id="hero-title">El sabor<br><span class="hero-brush">de casa.</span></h1>
+                <p class="hero-motto">Hecho en familia, para tu familia.</p>
+                <p class="hero-description">En CHEESO cuidamos cada detalle para ofrecerte un queso delicioso, fresco y de excelente calidad.</p>
+                <div class="hero-actions">
+                    <a class="hero-button hero-button-primary" href="#productos">Quiero mi CHEESO</a>
+                    <a class="hero-button hero-button-secondary" data-social="whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Comprar por WhatsApp</a>
+                </div>
+                <div class="hero-benefits" aria-label="Características de CHEESO">
+                    <div><svg class="benefit-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 31C6 16 17 6 34 6c2 17-5 29-20 29M7 39 28 14M15 27l-1-10"/></svg><span>Ingredientes de calidad</span></div>
+                    <div><svg class="benefit-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 38 6 22C-4 10 12-1 22 12 32-1 48 10 38 22Z"/></svg><span>Hecho en familia</span></div>
+                    <div><svg class="benefit-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 29 5l10 14v20H5ZM5 19h34M29 5v14M13 26h1m15 6h1M24 24h1"/></svg><span>Sabor que siempre encanta</span></div>
+                </div>
+            </div>
+            <div class="hero-stage" data-hero-carousel role="region" aria-roledescription="carrusel" aria-label="Fotografías de queso CHEESO">
+                <img class="hero-photo is-active" src="img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg" alt="Molde individual de queso CHEESO en su canasta blanca" aria-hidden="false" fetchpriority="high" decoding="async">
+                <img class="hero-photo" src="img/quesocheeso/WhatsApp Image 2026-10-06 at 00.51.07 (2).jpeg" alt="Moldes de queso CHEESO dentro de sus canastas blancas" aria-hidden="true" loading="lazy" decoding="async">
+                <div class="hero-image-controls" role="group" aria-label="Cambiar fotografía de Inicio"><button class="hero-image-dot is-active" type="button" data-hero-photo aria-label="Fotografía 1: queso sobre tabla" aria-pressed="true"></button><button class="hero-image-dot" type="button" data-hero-photo aria-label="Fotografía 2: molde individual" aria-pressed="false"></button><button class="hero-image-dot" type="button" data-hero-photo aria-label="Fotografía 3: moldes en canastas" aria-pressed="false"></button><button type="button" data-hero-pause aria-label="Pausar imágenes de Inicio" aria-pressed="false"><svg data-hero-pause-icon viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 2h3v12H3zm7 0h3v12h-3Z"/></svg><svg data-hero-play-icon viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" hidden><path d="m4 2 10 6-10 6Z"/></svg></button></div>
+                <p class="hero-annotation annotation-fresh">Queso<br>fresco<svg viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8C8 42 25 58 65 66M53 54l15 12-18 7"/></svg></p>
+                <p class="hero-annotation annotation-quality">&iexcl;Delicioso<br>y de gran<br>calidad!</p>
+                <svg class="hero-heart heart-top" viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg>
+                <svg class="hero-heart heart-side" viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg>
+            </div>
+        </div>
+        <svg class="hero-bottom-wave" viewBox="0 0 1600 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#d9e8ee" d="M0 24C280 180 530 30 740 12s480 167 860 22v86H0Z"/><path fill="#fffdf8" d="M0 44C270 177 520 108 755 34s430 167 845 12v74H0Z"/></svg>
+    </section>
+
+    <section id="nosotros" class="seccion-nosotros-elegante" aria-labelledby="about-title">
+        <div class="story-layout">
+            <div class="story-collage">
+                <figure class="story-polaroid story-production" data-story-photo="production"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 00.51.08.jpeg" alt="Tanque de producción con la marca CHEESO, fotografía original" loading="lazy" decoding="async"></figure>
+                <figure class="story-polaroid story-baskets" data-story-photo="baskets"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 00.51.07.jpeg" alt="Moldes de queso CHEESO en canastas blancas, fotografía original" loading="lazy" decoding="async"></figure>
+                <div class="story-sticky">Nuestro queso,<br>hecho con<br>dedicaci&oacute;n<br>y mucho cari&ntilde;o.<svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></div>
+            </div>
+            <div class="story-content">
+                <header class="story-heading"><h2 id="about-title">Nuestra historia</h2><p>Una tradici&oacute;n familiar que se<br>convierte en un queso &uacute;nico.</p><div class="story-divider"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></div></header>
+                <div class="story-copy"><p>CHEESO nace de una familia que cree que las cosas buenas se hacen con dedicaci&oacute;n, cari&ntilde;o y cuidando cada detalle.</p><p>Para nosotros, la calidad y el sabor son lo m&aacute;s importante. Por eso ponemos especial cuidado en nuestros quesos para llevar a tu mesa un producto hecho con dedicaci&oacute;n y pensado para compartir en familia.</p></div>
+            </div>
+            <div class="story-values" aria-label="Nuestros valores"><div class="story-value"><svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 31C6 16 17 6 34 6c2 17-5 29-20 29M7 39 28 14M15 27l-1-10"/></svg><h3>Calidad</h3><p>Cuidamos cada detalle de nuestro producto.</p></div><div class="story-value"><svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 38 6 22C-4 10 12-1 22 12 32-1 48 10 38 22Z"/></svg><h3>Sabor</h3><p>Un queso que siempre te hará querer más.</p></div><div class="story-value"><svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 42V32c0-10 16-10 16 0v10M4 37v-9c0-5 6-7 10-4M40 37v-9c0-5-6-7-10-4M23 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12M8 15a4 4 0 1 0 0 8 4 4 0 0 0 0-8M37 15a4 4 0 1 0 0 8 4 4 0 0 0 0-8"/></svg><h3>Hecho en familia</h3><p>Detrás de cada CHEESO hay personas que se preocupan de verdad por lo que llega a tu mesa.</p></div></div>
+            <figure class="story-cheese"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg" alt="Molde individual de queso fresco CHEESO en su canasta blanca, fotografía original" loading="lazy" decoding="async"><figcaption class="story-family-bubble">De nuestra<br>familia<br>a tu mesa<svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></figcaption><svg class="story-cheese-arrow" viewBox="0 0 100 150" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 8C85 65 70 107 31 129M33 111l-7 23 25-8"/></svg></figure>
+        </div>
+        <svg class="story-wave" viewBox="0 0 1600 140" preserveAspectRatio="none" aria-hidden="true"><path fill="#d9e8ee" d="M0 28C260 50 270 162 610 55s380 53 550 68S1420 45 1600 60V140H0Z"/><path fill="#fff5e6" d="M0 98C210 23 400 160 660 87s270-35 450 34 305-33 490-19V140H0Z"/></svg>
+        <a class="story-next" href="#productos" aria-label="Ir a Nuestros quesos"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 11 9 9 9-9"/></svg></a>
+    </section>
+
+    <section id="productos" class="premium-products" aria-labelledby="products-title">
+        <div class="products-heading">
+            <div class="products-title-wrap"><svg class="products-rays" viewBox="0 0 60 80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" aria-hidden="true"><path d="m12 12 20 14M6 44l25-2m-15 27 18-12"/></svg><h2 id="products-title">NUESTROS QUESOS</h2><svg class="products-rays" viewBox="0 0 60 80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" aria-hidden="true"><path d="m12 12 20 14M6 44l25-2m-15 27 18-12"/></svg></div>
+            <p>El mismo sabor, ahora en la <span class="products-subtitle-brush">presentaci&oacute;n perfecta para ti.</span></p>
+            <div class="products-heading-heart" aria-hidden="true"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></div>
+        </div>
+        <div class="products-showcase">
+            <aside class="products-note products-note-left" aria-hidden="true"><p>Hecho con<br>ingredientes<br>de calidad</p><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12C20 49 37 62 74 74M60 59l17 17-22 4"/></svg></aside>
+            <div class="premium-product-grid">
+            <article class="premium-product product-card" data-id="queso-grande" data-name="Molde grande" data-unit="molde" data-weight="molde grande" data-rate="18" aria-labelledby="queso-grande-title">
+                <div class="premium-product-media"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 00.51.07 (2).jpeg" alt="CHEESO, molde grande" loading="lazy" decoding="async"></div>
+                <div class="premium-product-content">
+                    <h3 id="queso-grande-title">Molde grande</h3>
+                    <p class="premium-product-weight">Peso variable</p>
+                    <dl class="premium-product-prices">
+                        <div><dt>Precio unitario</dt><dd><strong>S/ 18</strong><span class="product-price-unit">por kg</span></dd></div>
+                        <div><dt>Precio mayorista*</dt><dd><strong>S/ 17</strong><span class="product-price-unit">por kg</span></dd></div>
+                    </dl>
+                    <p class="large-mold-note">Peso variable &middot; Precio final seg&uacute;n peso real</p>
+                    <div class="premium-product-actions"><a class="premium-buy" data-social="whatsapp" data-whatsapp-purpose="large-mold" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>Consultar por WhatsApp</span></a></div>
+                </div>
+            </article>
+            <article class="premium-product product-card" data-id="queso-1kg" data-name="Molde de 1 kg" data-unit="molde" data-weight="1kg" data-price="18" aria-labelledby="queso-1kg-title">
+                <div class="premium-product-media"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg" alt="CHEESO, molde de 1 kg" loading="lazy" decoding="async"></div>
+                <div class="premium-product-content">
+                    <h3 id="queso-1kg-title">Molde de 1 kg</h3>
+                    <p class="premium-product-weight">Aprox. 1 kg</p>
+                    <dl class="premium-product-prices">
+                        <div><dt>Precio unitario</dt><dd><strong>S/ 18</strong></dd></div>
+                        <div><dt>Precio mayorista*</dt><dd><strong>S/ 17</strong></dd></div>
+                    </dl>
+                    <div class="premium-product-actions">
+                        <div class="product-quantity" role="group" aria-label="Cantidad de molde de 1 kg">
+                            <button type="button" data-quantity="minus" aria-label="Disminuir cantidad de molde de 1 kg" disabled>&minus;</button>
+                            <output class="product-quantity-value" aria-live="polite">1</output>
+                            <button type="button" data-quantity="plus" aria-label="Aumentar cantidad de molde de 1 kg">+</button>
+                        </div>
+                        <button class="premium-buy add-to-cart" type="button" aria-label="Agregar molde de 1 kg al carrito"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h4l4 17h15l3-12H9M12 26h1m11 0h1"/><circle cx="13" cy="27" r="1.5"/><circle cx="24" cy="27" r="1.5"/></svg><span>Agregar al carrito</span></button>
+                    </div>
+                    <p class="product-added" role="status" aria-live="polite"></p>
+                </div>
+            </article>
+            </div>
+            <aside class="products-note products-note-right" aria-hidden="true"><p>El sabor de siempre,<br>para tu mesa</p><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></aside>
+        </div>
+        <p class="products-wholesale-note">*Precio mayorista sujeto a cantidad m&iacute;nima. Consulta por <a data-social="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
+    </section>
+
+<section id="compromiso" class="process-section" aria-labelledby="processTitle">
+        <header class="process-heading">
+            <p class="process-eyebrow">Nuestro proceso</p>
+            <h2 id="processTitle">El arte detrás de <span>cada queso</span></h2>
+            <p class="process-subtitle">Un proceso hecho con dedicación, cuidado y mucho amor para llevar a tu mesa un queso fresco y de calidad.</p>
+            <span class="process-heading-heart" aria-hidden="true"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></span><span class="process-heading-heart" aria-hidden="true"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></span>
+        </header>
+        <div class="process-carousel" data-process-carousel role="region" aria-roledescription="carrusel" aria-label="Los cuatro pasos de nuestro proceso">
+            <div class="process-stage" id="processSlides">
+                <figure class="process-slide is-active" style="--position: 0" role="group" aria-roledescription="diapositiva" aria-label="1 de 4" aria-hidden="false">
+                    <img src="img/seccionarte/Imagen de ChatGPT 6 oct 2026, 02_55_22.png" alt="Tanque de preparación CHEESO con sus recipientes y utensilios" loading="lazy" decoding="async">
+                    <figcaption class="process-caption"><span class="process-number">01</span><div class="process-description"><h3>Preparación</h3><p>Todo comienza con ingredientes seleccionados y el cuidado que ponemos desde el primer momento.</p></div><div class="process-dedication"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg><p>Cada paso lo hacemos con dedicación y amor.</p></div></figcaption>
+                </figure>
+                <figure class="process-slide" style="--position: 1" role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true" inert>
+                    <img src="img/seccionarte/Imagen de ChatGPT 6 oct 2026, 02_55_28.png" alt="Preparación del queso en el tanque, con una paleta de madera" loading="lazy" decoding="async">
+                    <figcaption class="process-caption"><span class="process-number">02</span><div class="process-description"><h3>Proceso artesanal</h3><p>Trabajamos cada preparación cuidadosamente, respetando nuestros tiempos y cuidando cada detalle.</p></div><div class="process-dedication"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg><p>Cada paso lo hacemos con dedicación y amor.</p></div></figcaption>
+                </figure>
+                <figure class="process-slide" style="--position: 2" role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true" inert>
+                    <img src="img/seccionarte/WhatsApp Image 2026-10-06 at 00.51.07 (2).jpeg" alt="Moldes de queso CHEESO dentro de sus canastas blancas" loading="lazy" decoding="async">
+                    <figcaption class="process-caption"><span class="process-number">03</span><div class="process-description"><h3>Moldeado</h3><p>Damos forma a nuestros quesos cuidadosamente para conseguir su textura característica.</p></div><div class="process-dedication"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg><p>Cada paso lo hacemos con dedicación y amor.</p></div></figcaption>
+                </figure>
+                <figure class="process-slide" style="--position: -1" role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true" inert>
+                    <img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg" alt="Molde individual de queso fresco CHEESO en su canasta blanca" loading="lazy" decoding="async">
+                    <figcaption class="process-caption"><span class="process-number">04</span><div class="process-description"><h3>Nuestro queso</h3><p>El resultado de un proceso hecho con dedicación: queso fresco CHEESO listo para compartir en familia.</p></div><div class="process-dedication"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg><p>Cada paso lo hacemos con dedicación y amor.</p></div></figcaption>
+                </figure>
+            </div>
+            <button class="process-arrow process-prev" type="button" data-process-prev aria-label="Ver paso anterior" aria-controls="processSlides"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+            <button class="process-arrow process-next" type="button" data-process-next aria-label="Ver paso siguiente" aria-controls="processSlides"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+            <div class="process-controls"><div class="process-dots" role="group" aria-label="Seleccionar paso"><button class="process-dot is-active" type="button" data-process-dot aria-label="01: Preparación" aria-pressed="true" aria-controls="processSlides"></button><button class="process-dot" type="button" data-process-dot aria-label="02: Proceso artesanal" aria-pressed="false" aria-controls="processSlides"></button><button class="process-dot" type="button" data-process-dot aria-label="03: Moldeado" aria-pressed="false" aria-controls="processSlides"></button><button class="process-dot" type="button" data-process-dot aria-label="04: Nuestro queso" aria-pressed="false" aria-controls="processSlides"></button></div><button class="process-pause" type="button" data-process-pause aria-pressed="false" aria-label="Pausar reproducción automática"><svg data-pause-icon viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 2h3v12H3zm7 0h3v12h-3Z"/></svg><svg data-play-icon viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" hidden><path d="m4 2 10 6-10 6Z"/></svg><span>Pausar</span></button></div>
+            <p class="process-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <svg class="process-leaf process-leaf-left" viewBox="0 0 70 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M28 82C34 56 24 35 22 12M27 55C5 54 5 32 9 28c16 3 19 17 18 27ZM29 38C45 40 56 21 50 15c-12 4-17 13-21 23ZM28 70C50 73 64 52 57 45c-12 4-23 15-29 25Z"/></svg><svg class="process-leaf process-leaf-right" viewBox="0 0 70 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M28 82C34 56 24 35 22 12M27 55C5 54 5 32 9 28c16 3 19 17 18 27ZM29 38C45 40 56 21 50 15c-12 4-17 13-21 23ZM28 70C50 73 64 52 57 45c-12 4-23 15-29 25Z"/></svg>
+        <svg class="process-wave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path fill="#f6e2c4" opacity=".35" d="M0 115C240 5 365 130 590 105S1120-15 1440 90V160H0Z"/><path fill="#d9e8ee" opacity=".35" d="M0 142C210 180 250 45 450 90S740 170 940 122s370-85 500-18v56H0Z"/></svg>
+    </section>
+
+    <section id="pedido" class="order-section" aria-labelledby="order-title">
+        <div class="order-layout">
+            <header class="order-heading"><h2 id="order-title">HAZ TU PEDIDO</h2><p>Tu CHEESO favorito, a unos clics de distancia.</p><span class="order-heading-heart"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></span></header>
+            <div class="order-phone-area">
+                <div class="order-phone" role="img" aria-label="Conversaci&oacute;n ilustrativa con CHEESO, no es un chat real">
+                    <div class="order-phone-camera"></div>
+                    <div class="order-chat-heading"><span class="order-chat-avatar">C</span><strong>CHEESO</strong><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+                    <div class="order-chat"><p class="order-chat-customer">Hola CHEESO<br>Quisiera informaci&oacute;n sobre sus quesos.</p><p class="order-chat-brand">&iexcl;Hola! Con mucho gusto te ayudamos con tu pedido.</p><span class="order-chat-caption">Conversaci&oacute;n ilustrativa</span></div>
+                    <div class="order-chat-input"><span>Escribe tu mensaje...</span><span aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></span></div>
+                </div>
+                <div class="order-sticky">Pide tu CHEESO<br>por WhatsApp.<br>F&aacute;cil y r&aacute;pido.<svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></div>
+            </div>
+            <div class="order-options" aria-label="Tres formas de pedir">
+                <a class="order-option" href="#productos"><span class="order-option-icon"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h6l5 25h21l4-18H12M16 36h1m16 0h1"/><circle cx="17" cy="37" r="2"/><circle cx="33" cy="37" r="2"/></svg></span><h3>Compra online</h3><p>Elige tu queso, agr&eacute;galo al carrito y completa tus datos.</p></a>
+                <a class="order-option" data-social="whatsapp" data-whatsapp-purpose="order" target="_blank" rel="noopener noreferrer"><span class="order-option-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></span><h3>Pide por WhatsApp</h3><p>Escr&iacute;benos directamente y te ayudamos con tu pedido.</p></a>
+                <article class="order-option"><div class="order-social-icons"><a data-social="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de CHEESO"><i class="fab fa-instagram" aria-hidden="true"></i></a><a data-social="tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok de CHEESO"><i class="fab fa-tiktok" aria-hidden="true"></i></a><a data-social="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de CHEESO"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></div><h3>Escr&iacute;benos por redes</h3><p>Tambi&eacute;n puedes encontrarnos en Instagram, TikTok y Facebook.</p></article>
+            </div>
+            <div class="order-steps"><h3>As&iacute; de f&aacute;cil es disfrutar tu CHEESO</h3><ol><li><div class="order-step-icon"><span>1</span><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5v28l7-7 5 11 6-3-5-10h12Z"/></svg></div><p>ELIGE TU QUESO</p></li><li><div class="order-step-icon"><span>2</span><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h6l5 25h21l4-18H12M16 37h2m14 0h2"/></svg></div><p>HAZ TU PEDIDO</p></li><li><div class="order-step-icon"><span>3</span><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h23v23H3ZM26 18h9l6 8v7H26M10 30a5 5 0 1 0 0 10 5 5 0 0 0 0-10M33 30a5 5 0 1 0 0 10 5 5 0 0 0 0-10"/></svg></div><p>COORDINAMOS LA ENTREGA</p></li><li><div class="order-step-icon"><span>4</span><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 22 5l19 17M8 18v22h11V28h7v12h10V18"/></svg></div><p>DISFRUTA TU CHEESO</p></li></ol></div>
+            <div class="order-actions"><a class="order-button order-button-primary" href="#productos"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h6l5 25h21l4-18H12M16 36h1m16 0h1"/><circle cx="17" cy="37" r="2"/><circle cx="33" cy="37" r="2"/></svg><span>Comprar online</span><span aria-hidden="true">&rarr;</span></a><a class="order-button order-button-secondary" data-social="whatsapp" data-whatsapp-purpose="order" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>Hacer mi pedido por WhatsApp</span><span aria-hidden="true">&rarr;</span></a></div>
+            <figure class="order-cheese"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg" alt="Molde real de queso fresco CHEESO en su canasta blanca" loading="lazy" decoding="async"><figcaption>Un queso<br>que llega<br>directo a<br>tu mesa<svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></figcaption><svg class="order-cheese-arrow" viewBox="0 0 90 130" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 7C73 45 67 93 24 110M27 90l-8 25 23-5"/></svg></figure>
+        </div>
+        <svg class="order-wave" viewBox="0 0 1600 130" preserveAspectRatio="none" aria-hidden="true"><path fill="#d9e8ee" d="M0 24C250 179 420 59 740 34s329 129 540 57 270-56 320-40v79H0Z"/><path fill="#fff5e6" d="M0 84C270 10 355 162 715 63s360 94 625 48 171-72 260-10v29H0Z"/></svg>
+        <a class="order-next" href="#contacto" aria-label="Ir a Contacto"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 11 9 9 9-9"/></svg></a>
+    </section>
+
+    <footer id="contacto" class="contact-cheeso" aria-labelledby="contact-title">
+        <div class="contact-layout">
+            <header class="contact-heading"><h2 id="contact-title">Sigamos en contacto</h2><p>&iquest;Tienes alguna consulta?<br>Encu&eacute;ntranos en nuestras redes<br>o escr&iacute;benos directamente.</p><div class="contact-divider"><svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></div></header>
+            <figure class="contact-cheese"><img src="img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg" alt="Queso fresco CHEESO, fotograf&iacute;a original del molde en su canasta blanca" loading="lazy" decoding="async"><figcaption>El mismo sabor de siempre,<br>ahora m&aacute;s cerca de ti.<svg viewBox="0 0 60 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 53C19 40 2 29 9 15c5-11 19-7 21 6 6-16 22-18 23-4 1 12-15 26-23 36Z"/></svg></figcaption><svg class="contact-cheese-arrow" viewBox="0 0 90 110" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12C60 9 62 64 56 90M44 76l13 20 13-18"/></svg></figure>
+            <div class="contact-main"><a class="contact-whatsapp-card" data-social="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar a CHEESO por WhatsApp"><span class="contact-whatsapp-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></span><span class="contact-whatsapp-copy"><span class="contact-talk">&iquest;Hablamos?</span><strong class="contact-phone" data-display-phone>+51 929 828 271</strong><span>Pedidos y consultas por WhatsApp</span></span></a><p class="contact-find-us">Tambi&eacute;n puedes encontrarnos en:</p><div class="contact-socials"><a class="contact-social-card" data-social="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de CHEESO"><i class="fab fa-instagram" aria-hidden="true"></i><span><strong>Instagram</strong><small>@cheeso_pe</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></a><a class="contact-social-card" data-social="tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok de CHEESO"><i class="fab fa-tiktok" aria-hidden="true"></i><span><strong>TikTok</strong><small>@cheeso.pe</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></a><a class="contact-social-card" data-social="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de CHEESO"><i class="fab fa-facebook-f" aria-hidden="true"></i><span><strong>Facebook</strong><small>CHEESO</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></a></div></div>
+            <div class="contact-qr-area"><a class="contact-qr-polaroid" data-social="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de CHEESO"><h3>S&iacute;guenos en<br><strong>Instagram</strong></h3><div class="contact-qr-placeholder"><i class="fab fa-instagram" aria-hidden="true"></i><strong>QR original pendiente</strong><span>Espacio reservado para tu archivo de Instagram</span></div><p>@CHEESO_PE</p></a></div>
+            <div class="contact-brand"><svg viewBox="0 0 60 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 86C31 66 27 33 43 8M29 57C7 56 5 39 12 28C28 31 34 42 29 57ZM31 42C51 42 57 25 51 17C35 18 30 28 31 42Z"/></svg><div><span class="contact-brand-logo"><img src="img/logo.png" alt="CHEESO"></span><p>Creado con pasi&oacute;n, disfrutado con amor</p></div><svg viewBox="0 0 60 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 86C31 66 27 33 43 8M29 57C7 56 5 39 12 28C28 31 34 42 29 57ZM31 42C51 42 57 25 51 17C35 18 30 28 31 42Z"/></svg></div>
+            <div class="contact-tools"><button class="contact-faq" id="faqToggle" type="button" aria-label="Abrir preguntas frecuentes">Preguntas frecuentes</button></div>
+        </div>
+        <svg class="contact-wave" viewBox="0 0 1600 140" preserveAspectRatio="none" aria-hidden="true"><path fill="#d9e8ee" d="M0 63C280 158 290 3 570 48s251 145 530 43 270-72 500-21v70H0Z"/><path fill="#fff5e6" d="M0 113C270 5 355 145 580 84s220 112 480 46 380-84 540-28v38H0Z"/></svg>
+    </footer>
+
+    <div class="botones-flotantes">
+        <button class="btn-floating faq-float" id="faqFloatToggle" type="button" aria-label="Abrir preguntas frecuentes" aria-expanded="false" aria-controls="faqPanel">?</button>
+        <a data-social="whatsapp" target="_blank" rel="noopener noreferrer" class="btn-floating whatsapp" aria-label="WhatsApp: ¿Necesitas ayuda? Escríbenos"><i class="fab fa-whatsapp" aria-hidden="true"></i><span class="whatsapp-tooltip" role="tooltip">¿Necesitas ayuda? Escríbenos</span></a>
+    </div>
+
+    <div class="modal-backdrop" id="authModal" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+            <div class="modal-head"><h3 id="authTitle">Cuenta CHEESO</h3><button class="close-btn" type="button" data-close-modal="authModal">×</button></div>
+            <div class="tabs"><button class="tab-btn active" type="button" data-auth-tab="login">Login</button><button class="tab-btn" type="button" data-auth-tab="register">Register</button></div>
+            <form class="form-grid" id="loginForm">
+                <label>Correo<input type="email" name="email" required autocomplete="email"></label>
+                <label>Contraseña<input type="password" name="password" required autocomplete="current-password"></label>
+                <button class="btn-primary" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</button>
+                <p class="auth-switch">¿No tienes cuenta? <button type="button" data-auth-switch="register">Regístrate aquí</button></p>
+            </form>
+            <form class="form-grid" id="registerForm" hidden>
+                <div class="auth-two-col">
+                    <label>Nombre<input type="text" name="name" required autocomplete="name"></label>
+                    <label>Teléfono<input type="tel" name="phone" required autocomplete="tel"></label>
+                </div>
+                <label>Correo<input type="email" name="email" required autocomplete="email"></label>
+                <label>Contraseña<input type="password" name="password" required minlength="4" autocomplete="new-password"></label>
+                <button class="btn-primary" type="submit"><i class="fa-solid fa-user-plus"></i> Crear cuenta</button>
+                <p class="auth-switch">¿Ya tienes cuenta? <button type="button" data-auth-switch="login">Inicia sesión aquí</button></p>
+            </form>
+            <p class="auth-status" id="authStatus"></p>
+        </div>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+    <aside class="drawer checkout-shell" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true" inert>
+        <div class="checkout-container">
+            <button class="checkout-close" type="button" id="closeCart" aria-label="Cerrar carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+            <ol class="checkout-progress" aria-label="Pasos del pedido">
+                <li data-progress="1"><span>1</span><strong>Tu carrito</strong></li>
+                <li data-progress="2"><span>2</span><strong>Datos de entrega</strong></li>
+                <li data-progress="3"><span>3</span><strong>Pago y confirmaci&oacute;n</strong></li>
+            </ol>
+            <header class="checkout-heading"><h2 id="cartTitle" tabindex="-1">Tu carrito</h2><p id="checkoutSubtitle">Revisa tus productos antes de continuar.</p></header>
+            <div class="cart-body">
+                <section data-checkout-step="1" id="cartSelection" aria-label="Tu carrito">
+                    <div class="cart-items" id="cartItems" aria-live="polite"></div>
+                    <div class="checkout-card checkout-totals"><h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Resumen de tu carrito</h3><div id="cartTotals"></div></div>
+                    <button class="checkout-primary" type="button" id="continueOrder">Continuar con datos de entrega <span aria-hidden="true">&rarr;</span></button>
+                    <p class="checkout-guest">Contin&uacute;a como invitado. Sin crear una cuenta.</p>
+                </section>
+                <section data-checkout-step="2" id="cartCheckout" hidden aria-label="Datos de entrega">
+                    <form id="checkoutForm" novalidate>
+                        <fieldset class="checkout-card"><legend><i class="fa-regular fa-user" aria-hidden="true"></i> Informaci&oacute;n personal</legend>
+                            <label>Nombre completo *<input name="name" required autocomplete="name" maxlength="100" placeholder="Ej. Mar&iacute;a Rodr&iacute;guez"></label>
+                            <div class="checkout-fields two-columns"><label>Celular *<span class="checkout-phone"><span>+51</span><input name="phone" type="tel" required inputmode="numeric" autocomplete="tel-national" maxlength="11" pattern="9[0-9]{8}" placeholder="929 828 271" aria-describedby="phoneHint"></span><small id="phoneHint">9 d&iacute;gitos, empezando por 9.</small></label><label>Correo electr&oacute;nico *<input name="email" type="email" required autocomplete="email" maxlength="150" placeholder="ejemplo@correo.com"></label></div>
+                        </fieldset>
+                        <fieldset class="checkout-card"><legend><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Direcci&oacute;n de entrega</legend>
+                            <div class="checkout-fields three-columns"><label>Departamento *<select name="department" required id="checkoutDepartment"><option value="">Selecciona</option></select></label><label>Provincia *<select name="province" required id="checkoutProvince" disabled><option value="">Selecciona</option></select></label><label>Distrito *<select name="district" required id="checkoutDistrict" disabled><option value="">Selecciona</option></select></label></div>
+                            <label>Direcci&oacute;n exacta *<input name="address" required autocomplete="street-address" maxlength="300" placeholder="Av. Los Laureles 123, Urb. Santa Rosa, etc."></label>
+                            <label>Referencia *<textarea name="reference" required maxlength="500" rows="2" placeholder="Ej. Casa de color blanco, al lado del parque, tercer piso, etc."></textarea></label>
+                        </fieldset>
+                        <p class="checkout-note">CHEESO se comunicará contigo para confirmar los detalles y el costo de entrega.</p>
+                        <div class="checkout-navigation"><button class="checkout-secondary" type="button" id="backToCart">&larr; Volver al carrito</button><button class="checkout-primary" type="submit" id="continuePayment">Continuar con el pago &rarr;</button></div>
+                        <p class="checkout-error" id="checkoutFormError" role="alert"></p>
+                    </form>
+                </section>
+                <section data-checkout-step="3" id="cartPayment" hidden aria-label="Pago y confirmaci&oacute;n">
+                    <div class="checkout-card checkout-payment"><h3><i class="fa-solid fa-wallet" aria-hidden="true"></i> M&eacute;todo de pago</h3><label class="checkout-payment-option"><input type="radio" name="payment" value="contraentrega" checked><span><strong>Pago contraentrega</strong><span class="checkout-recommended">Recomendado</span><p>Paga cuando recibas tu pedido.</p><small>En efectivo o Yape (seg&uacute;n disponibilidad).</small></span></label></div>
+                    <div class="checkout-card"><h3><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Resumen de tu pedido</h3><div id="checkoutSummary"></div><div id="checkoutFinalTotals" class="checkout-totals"></div></div>
+                    <div class="checkout-card checkout-delivery-review"><h3>Datos de entrega</h3><div id="checkoutDeliveryReview"></div><button class="checkout-link" type="button" id="editCheckoutDelivery">Editar datos</button></div>
+                    <div class="checkout-navigation"><button class="checkout-secondary" type="button" id="backToDelivery">&larr; Volver a datos</button><button class="checkout-primary" type="button" id="confirmOrderButton"><i class="fa-solid fa-check" aria-hidden="true"></i> Confirmar pedido</button></div>
+                    <p class="checkout-note">Al confirmar, coordinaremos contigo el costo de env&iacute;o y los detalles de entrega.</p><p class="checkout-error" id="checkoutSubmitError" role="alert"></p>
+                </section>
+                <section data-checkout-step="4" id="checkoutSuccess" hidden aria-label="Pedido confirmado"><div class="checkout-success-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div><h3>&iexcl;Pedido recibido!</h3><p>Gracias por elegir CHEESO.</p><strong id="checkoutOrderCode"></strong><p>Nos comunicaremos contigo para confirmar el costo de env&iacute;o y los detalles de entrega.</p><a id="checkoutWhatsApp" class="checkout-primary" target="_blank" rel="noopener noreferrer" aria-label="Coordinar pedido con CHEESO por WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> Coordinar por WhatsApp</a><button class="checkout-secondary" type="button" id="finishCheckout">Seguir viendo nuestros quesos</button></section>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="faq-panel" id="faqPanel" role="dialog" aria-labelledby="faqTitle" aria-hidden="true" inert>
+        <div class="faq-head">
+            <div class="faq-title-wrap"><span class="faq-avatar" aria-hidden="true">?</span><h3 id="faqTitle">Preguntas frecuentes</h3></div>
+            <button class="close-btn" type="button" id="closeFaq" aria-label="Cerrar preguntas frecuentes">&times;</button>
+        </div>
+        <div class="faq-body">
+            <div id="faqMessages" aria-live="polite" aria-atomic="true">
+                <div class="bot-msg">Hola, soy el asistente de CHEESO. Elige una opción para ayudarte.</div>
+            </div>
+            <div class="faq-options">
+                <button type="button" data-faq="tipos">Tipos de queso</button>
+                <button type="button" data-faq="precios">Precios</button>
+                <button type="button" data-faq="entrega">Entrega</button>
+                <button type="button" data-faq="contacto">Contacto</button>
+                <button type="button" data-faq="grande">Molde grande</button>
+                <button type="button" data-faq="reset">Volver al inicio</button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const CONFIG = {
+                
+                storage: {
+                    users: "chesso_users",
+                    session: "chesso_session",
+                    cart: "chesso_cart",
+                    orders: "chesso_orders"
+                }
+            };
+
+            const state = {
+                cart: readStorage(CONFIG.storage.cart, []).filter(item => item?.productId === "queso-1kg" && item.weight === "1kg" && Number.isSafeInteger(item.qty) && item.qty > 0 && Number.isSafeInteger(item.qty * 18)).map(item => ({ ...item, name: "Molde de 1 kg", price: 18, rate: null })),
+                session: readStorage(CONFIG.storage.session, null),
+                currentSlide: 0,
+                slideTimer: null
+            };
+
+            const $ = (selector, root = document) => root.querySelector(selector);
+            const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+            function readStorage(key, fallback) {
+                try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+                catch { return fallback; }
+            }
+            function writeStorage(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
+            function money(value) { return `S/ ${Number(value).toFixed(0)}`; }
+            function currentUser() { return state.session?.user || state.session || null; }
+            function readOrders() { return readStorage(CONFIG.storage.orders, []); }
+            function writeOrders(orders) { writeStorage(CONFIG.storage.orders, orders); }
+            function toast(message) {
+                const node = $("#toast");
+                node.textContent = message;
+                node.classList.add("show");
+                setTimeout(() => node.classList.remove("show"), 2400);
+            }
+            function openWhatsApp(message) {
+                window.open(window.CHEESO_SOCIAL.whatsappUrl(message), "_blank", "noopener,noreferrer");
+            }
+            window.abrirWhatsApp = () => openWhatsApp(window.CHEESO_SOCIAL.defaultMessage);
+
+            function initNavigation() {
+                const header = $(".header-elegante");
+                const menu = $("#menuMobile");
+                const nav = $("#mainNav");
+                window.addEventListener("scroll", () => header.classList.toggle("scrolled", window.scrollY > 20));
+                menu.addEventListener("click", () => {
+                    menu.classList.toggle("active");
+                    nav.classList.toggle("active");
+                    menu.setAttribute("aria-expanded", String(nav.classList.contains("active")));
+                    menu.setAttribute("aria-label", nav.classList.contains("active") ? "Cerrar menú" : "Abrir menú");
+                });
+                $$('a[href^="#"]').forEach(link => {
+                    link.addEventListener("click", event => {
+                        const target = $(link.getAttribute("href"));
+                        if (!target) return;
+                        event.preventDefault();
+                        target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+                        if (link.matches(".nav-link-elegante")) {
+                            $$(".nav-link-elegante").forEach(item => { item.classList.toggle("active", item === link); item.removeAttribute("aria-current"); });
+                            link.setAttribute("aria-current", "page");
+                        }
+                        menu.classList.remove("active");
+                        nav.classList.remove("active");
+                        menu.setAttribute("aria-expanded", "false");
+                        menu.setAttribute("aria-label", "Abrir menú");
+                    });
+                });
+            }
+
+            function initProducts() {
+                $$(".btn-venta").forEach(button => {
+                    button.addEventListener("click", () => {
+                        $$(".btn-venta").forEach(item => item.classList.remove("active"));
+                        button.classList.add("active");
+                    });
+                });
+                $$(".product-card").forEach(card => {
+                    const priceNode = $(".precio-actual", card) || $(".vela-price", card);
+                    const unitNode = $(".unidad-venta", card);
+                    $$(".peso-option", card).forEach(option => {
+                        option.addEventListener("click", () => {
+                            $$(".peso-option", card).forEach(item => item.classList.remove("active"));
+                            option.classList.add("active");
+                            if (priceNode) priceNode.textContent = money(option.dataset.price);
+                            if (unitNode) unitNode.textContent = `/ ${option.dataset.weight}`;
+                        });
+                    });
+                    const quantity = $(".product-quantity-value", card);
+                    $$('[data-quantity]', card).forEach(button => button.addEventListener('click', () => {
+                        const current = Number(quantity.value || quantity.textContent);
+                        const next = button.dataset.quantity === 'plus' ? current + 1 : Math.max(1, current - 1);
+                        if (!Number.isSafeInteger(next)) return;
+                        quantity.value = String(next);
+                        $('[data-quantity="minus"]', card).disabled = next === 1;
+                    }));
+                    $(".add-to-cart", card)?.addEventListener("click", () => addProduct(card));
+                    $(".consult-product", card)?.addEventListener("click", () => {
+                        const selected = $(".peso-option.active", card);
+                        abrirWhatsApp(`${card.dataset.name} ${selected?.dataset.weight || card.dataset.weight || ""}`);
+                    });
+                });
+                $$("[data-whatsapp]").forEach(button => {
+                    button.addEventListener("click", event => {
+                        event.preventDefault();
+                        abrirWhatsApp(button.dataset.whatsapp);
+                    });
+                });
+            }
+
+            function escapeHtml(value) {
+                return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
+            }
+            function selectedProduct(card) {
+                const price = card.dataset.price === undefined ? null : Number(card.dataset.price);
+                return {
+                    id: `${card.dataset.id}-${card.dataset.weight}`,
+                    productId: card.dataset.id,
+                    name: card.dataset.name,
+                    unit: card.dataset.unit,
+                    weight: card.dataset.weight,
+                    price: Number.isFinite(price) && price > 0 ? price : null,
+                    rate: card.dataset.rate ? Number(card.dataset.rate) : null,
+                    qty: Number($(".product-quantity-value", card)?.value || 1)
+                };
+            }
+            function addProduct(card) {
+                if (card.dataset.id !== "queso-1kg") return;
+                const product = selectedProduct(card);
+                const found = state.cart.find(item => item.id === product.id);
+                if (found) found.qty += product.qty;
+                else state.cart.push(product);
+                persistCart();
+                const confirmation = $('.product-added', card);
+                confirmation.textContent = '\u2713 Agregado al carrito';
+                clearTimeout(confirmation.hideTimer);
+                confirmation.hideTimer = setTimeout(() => { confirmation.textContent = ''; }, 2600);
+                toast('\u2713 Agregado al carrito');
+                openDrawer();
+            }
+            function persistCart() {
+                writeStorage(CONFIG.storage.cart, state.cart);
+                renderCart();
+            }
+            function cartTotals() {
+                return {
+                    total: state.cart.reduce((sum, item) => sum + (item.price ?? 0) * item.qty, 0),
+                    pending: state.cart.some(item => item.price === null)
+                };
+            }
+            function productPresentation(item) { return item.productId === 'queso-1kg' ? 'Molde de 1 kg' : 'Molde grande \u2014 S/ 18 por kg'; }
+            function productImage(item) { return item.productId === 'queso-1kg' ? 'img/quesocheeso/WhatsApp Image 2026-10-06 at 01.44.12.jpeg' : 'img/quesocheeso/WhatsApp Image 2026-10-06 at 00.51.07 (2).jpeg'; }
+            function itemSubtotal(item) { return item.price === null ? 'Precio final seg\u00fan peso real.' : money(item.price * item.qty); }
+            function totalLabel(totals) { return totals.pending ? 'Por confirmar' : money(totals.total); }
+            function renderCart() { window.CHEESO_CHECKOUT.render(); }
+            function initCart() {
+                writeStorage(CONFIG.storage.cart, state.cart);
+                window.CHEESO_CHECKOUT.init({
+                    getCart: () => state.cart,
+                    saveCart: cart => { state.cart = cart; writeStorage(CONFIG.storage.cart, cart); },
+                    toast,
+                    productImage,
+                    getUser: currentUser
+                });
+            }
+            function openDrawer() { window.CHEESO_CHECKOUT.open(); }
+            function closeDrawer() { window.CHEESO_CHECKOUT.close(); }
+            function initAuth() {
+                $("#authButton").addEventListener("click", () => state.session ? logout() : openModal("authModal"));
+                $("#authNavButton")?.addEventListener("click", () => state.session ? logout() : openModal("authModal"));
+                const showAuthTab = tabName => {
+                    $$("[data-auth-tab]").forEach(item => item.classList.toggle("active", item.dataset.authTab === tabName));
+                    $("#loginForm").hidden = tabName !== "login";
+                    $("#registerForm").hidden = tabName !== "register";
+                    $("#authStatus").textContent = "";
+                };
+                $$("[data-auth-tab]").forEach(tab => {
+                    tab.addEventListener("click", () => showAuthTab(tab.dataset.authTab));
+                });
+                $$("[data-auth-switch]").forEach(button => {
+                    button.addEventListener("click", () => showAuthTab(button.dataset.authSwitch));
+                });
+                const authenticate = async (event, endpoint, message) => {
+                    event.preventDefault();
+                    const form = event.currentTarget;
+                    const button = form.querySelector('[type="submit"]');
+                    if (button.disabled) return;
+                    button.disabled = true;
+                    $("#authStatus").textContent = "";
+                    try {
+                        const base = window.CHEESO_CHECKOUT_API || (location.protocol === "file:" ? "http://localhost:3000" : "");
+                        const response = await fetch(`${base}/api/${endpoint}`, {
+                            method: "POST", headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                        });
+                        const payload = await response.json();
+                        if (!response.ok) throw new Error(payload.error || "No se pudo iniciar la sesi?n.");
+                        setSession(payload);
+                        form.reset();
+                        closeModal("authModal");
+                        toast(message);
+                    } catch (error) {
+                        $("#authStatus").textContent = error.message || "No se pudo conectar. Int?ntalo nuevamente.";
+                    } finally { button.disabled = false; }
+                };
+                $("#registerForm").addEventListener("submit", event => authenticate(event, "register", "Cuenta creada"));
+                $("#loginForm").addEventListener("submit", event => authenticate(event, "login", "Sesi?n iniciada"));
+                $$("[data-close-modal]").forEach(button => button.addEventListener("click", () => closeModal(button.dataset.closeModal)));
+                updateAuthButton();
+                renderCart();
+            }
+            function publicUser(user) {
+                return { id: user.id, name: user.name, email: user.email, phone: user.phone };
+            }
+            function setSession(payload) {
+                state.session = { user: payload.user, token: payload.token };
+                writeStorage(CONFIG.storage.session, state.session);
+                updateAuthButton();
+                renderCart();
+            }
+            function logout() {
+                const token = state.session?.token;
+                if (token) {
+                    const base = window.CHEESO_CHECKOUT_API || (location.protocol === "file:" ? "http://localhost:3000" : "");
+                    fetch(`${base}/api/logout`, { method: "POST", headers: { Authorization: `Bearer ${token}` } }).catch(() => {});
+                }
+                localStorage.removeItem(CONFIG.storage.session);
+                state.session = null;
+                updateAuthButton();
+                renderCart();
+                toast("Sesión cerrada");
+            }
+            function updateAuthButton() {
+                const user = currentUser();
+                $("#authButton").textContent = user ? `Hola, ${user.name.split(" ")[0]}` : "Ingresar";
+                if ($("#authNavButton")) {
+                    $("#authNavButton").textContent = user ? `SALIR (${user.name.split(" ")[0]})` : "MI CUENTA";
+                }
+            }
+            function openModal(id) { $(`#${id}`).classList.add("open"); document.body.classList.add("modal-open"); }
+            function closeModal(id) { $(`#${id}`).classList.remove("open"); document.body.classList.remove("modal-open"); }
+
+            function initFaq() { window.CHEESO_FAQ.init(); }
+
+            function initAnimations() {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: .12 });
+                $$(".card-producto, .card-compromiso, .servicio-item, .vela-card").forEach(node => {
+                    node.classList.add("fade-in");
+                    observer.observe(node);
+                });
+            }
+
+
+            initNavigation();
+            initProducts();
+            initCart();
+            initAuth();
+            initFaq();
+            initAnimations();
+        });
+    </script>
+</body>
+</html>

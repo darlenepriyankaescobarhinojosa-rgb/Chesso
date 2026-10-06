@@ -1,0 +1,12 @@
+{
+  "name": "backend-chesso",
+  "version": "1.0.0",
+  "description": "Backend local para autenticacion, carrito y pedidos de CHESO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test tests/checkout.test.cjs"
+  },
+  "license": "UNLICENSED"
+}

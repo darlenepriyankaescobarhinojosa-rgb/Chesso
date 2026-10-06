@@ -1,15 +1,9 @@
-// ============================================
-// script.js - CHESO Website (Versión Unificada)
-// Versión: 2.0.0
-// Autor: CHESO Team
-// ============================================
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🧀 CHESO Website Iniciando...', 'color: #8B4513; font-weight: bold; font-size: 16px');
     
-    // ==============================
-    // CONFIGURACIÓN GLOBAL
-    // ==============================
+
     const CONFIG = {
         // Slider
         autoPlay: true,
@@ -18,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         pauseOnHover: true,
         
         // WhatsApp
-        whatsappNumber: '51913297090', // REEMPLAZAR CON TU NÚMERO
-        defaultMessage: '¡Hola CHESO! Me gustaría información sobre sus productos.',
+        whatsappNumber: window.CHEESO_SOCIAL.phone,
+        defaultMessage: window.CHEESO_SOCIAL.defaultMessage,
         
         // Menú
         mobileBreakpoint: 768,
@@ -28,9 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         debug: false
     };
     
-    // ==============================
-    // ELEMENTOS DEL DOM
-    // ==============================
+
     const elements = {
         // Slider
         slides: document.querySelectorAll('.slide'),
@@ -49,40 +41,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // Botones WhatsApp
         whatsappButtons: document.querySelectorAll('[onclick*="abrirWhatsApp"]')
     };
-    
-    // ==============================
-    // VARIABLES DE ESTADO
-    // ==============================
+  
     let currentSlide = 0;
     let slideInterval = null;
     let isAnimating = false;
     let totalSlides = elements.slides.length;
     let isMenuOpen = false;
     
-    // ==============================
-    // FUNCIONES DE WHATSAPP
-    // ==============================
+ 
     
     /**
      * Abre WhatsApp con mensaje personalizado
      * @param {string} producto - Nombre del producto o consulta
      */
     window.abrirWhatsApp = function(producto) {
-        let mensaje = CONFIG.defaultMessage;
-        
-        if (producto && producto !== 'Consulta general') {
-            mensaje = `¡Hola CHESO! Estoy interesado en: ${producto}. ¿Podrían darme más información?`;
-        }
-        
-        const mensajeCodificado = encodeURIComponent(mensaje);
-        const urlWhatsApp = `https://wa.me/${CONFIG.whatsappNumber}?text=${mensajeCodificado}`;
-        
+        const urlWhatsApp = window.CHEESO_SOCIAL.whatsappUrl();
+
         if (CONFIG.debug) {
             console.log(`📱 WhatsApp: ${producto}`);
             console.log(`URL: ${urlWhatsApp}`);
         }
         
-        window.open(urlWhatsApp, '_blank');
+        window.open(urlWhatsApp, '_blank', 'noopener,noreferrer');
     };
     
     /**
@@ -115,10 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
-    // ==============================
-    // FUNCIONES DEL SLIDER (TU CÓDIGO MEJORADO)
-    // ==============================
+
     
     /**
      * Cambia al slide especificado
@@ -273,9 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startAutoPlay();
     }
     
-    // ==============================
-    // FUNCIONES DEL MENÚ
-    // ==============================
+
     
     /**
      * Toggle del menú móvil
@@ -340,9 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ==============================
-    // FUNCIONES DE NAVEGACIÓN SUAVE
-    // ==============================
+ 
     
     /**
      * Configura navegación suave
@@ -372,10 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ==============================
-    // FUNCIONES DE PRODUCTOS
-    // ==============================
-    
+  
     /**
      * Configura selector Por Molde/Por Kilo
      */
@@ -399,9 +369,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ==============================
-    // FUNCIONES DE SCROLL ANIMATIONS
-    // ==============================
     
     /**
      * Efectos al hacer scroll
@@ -435,9 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ==============================
-    // INICIALIZACIÓN
-    // ==============================
+
     
     /**
      * Inicializa todo el sitio
@@ -468,9 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('='.repeat(50));
     }
     
-    // ==============================
-    // API PÚBLICA (para depuración)
-    // ==============================
+  
     window.CHESO = {
         // Slider
         slider: {
@@ -505,9 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
     init();
 });
 
-// ==============================
-// ESTILOS DINÁMICOS (opcional)
-// ==============================
+
 const style = document.createElement('style');
 style.textContent = `
     /* Animaciones */

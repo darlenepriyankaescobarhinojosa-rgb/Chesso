@@ -1,0 +1,60 @@
+:root { --chesso-blue: #08748c; }
+.premium-hero { background: #f7f0df; }
+.hero-layout { max-width: 1300px; gap: 64px; padding: 64px 40px 54px; min-height: 650px; }
+.hero-copy h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.4vw, 4.5rem); letter-spacing: -.045em; line-height: 1.14; margin: 22px 0; font-weight: 500; }
+.hero-copy h1 em { font-style: normal; color: var(--chesso-blue); }
+.hero-product-name { font-family: 'Raleway', sans-serif; font-size: .98rem; font-weight: 600; color: var(--marron); }
+.hero-motto { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; margin: 15px 0; max-width: none; }
+.hero-description { font-size: .88rem; line-height: 1.85; max-width: 390px; margin-bottom: 27px; }
+.hero-eyebrow { color: var(--chesso-blue); font-size: .61rem; letter-spacing: .16em; }
+.hero-button-primary { background: var(--chesso-blue); border-color: var(--chesso-blue); }
+.hero-button-primary:hover { background: #065d70; color: var(--crema); }
+.hero-button-secondary { border-color: #70401f50; }
+.hero-stage { height: auto; display: block; padding: 26px 0 0; }
+.hero-stage::before { inset: -20px -20px auto; width: calc(100% + 40px); background: #c89b5510; }
+.hero-photo { width: 100%; aspect-ratio: 1.12; object-fit: cover; object-position: 46% 50%; border-radius: 48% 48% 18px 18px; box-shadow: 0 18px 40px #70401f12; }
+.hero-product-caption { position: static; margin-top: 22px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; }
+.hero-product-caption span { font-style: normal; font-size: .58rem; }
+.hero-leaf { position: absolute; top: 5px; right: -15px; width: 60px; height: 80px; color: var(--chesso-blue); opacity: .35; transform: rotate(22deg); }
+.hero-benefits { max-width: 1220px; margin: auto; border-top: 1px solid var(--linea); padding: 23px 24px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.hero-benefits div { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: .72rem; color: var(--marron); }
+.hero-benefits div + div { border-left: 1px solid var(--linea); }
+.hero-benefits i { color: var(--chesso-blue); font-size: .95rem; }
+.hero-copy, .hero-stage { animation: chessoAppear .4s ease both; }
+.hero-stage { animation-delay: .08s; }
+@keyframes chessoAppear { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+#nosotros { position: relative; background: #fff8eb; padding: 88px 28px; overflow: hidden; }
+#nosotros .contenedor-nosotros { max-width: 1160px; }
+#nosotros .encabezado-nosotros { margin-bottom: 48px; }
+#nosotros .titulo-elegante { font-family: 'Playfair Display', serif; font-weight: 500; }
+.chesso-divider { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 20px; }
+.chesso-divider > span { height: 1px; width: 56px; background: #c89b5570; }
+.chesso-divider svg { width: 30px; height: 23px; color: var(--chesso-blue); }
+#nosotros .contenido-familiar { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 76px; }
+.about-intro { font-family: 'Playfair Display', serif; color: var(--marron); font-size: clamp(1.8rem, 2.7vw, 2.6rem); line-height: 1.25; font-weight: 500; margin-bottom: 24px; }
+.about-story p { font-family: 'Raleway', sans-serif; font-size: .94rem; line-height: 1.85; color: var(--gris); margin-bottom: 18px; }
+.about-story strong { color: var(--chesso-blue); font-weight: 600; }
+.about-story .about-signature { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; margin: 28px 0 0; color: var(--marron); }
+.about-photo { position: relative; margin: 0; min-width: 0; }
+.about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px; box-shadow: 0 12px 30px #70401f0c; }
+.about-photo figcaption { position: absolute; bottom: 18px; left: 18px; right: 18px; width: fit-content; background: #fff8ebdf; border: 1px solid #fff8eb80; border-radius: 4px; padding: 9px 14px; font-size: .64rem; letter-spacing: .08em; color: var(--marron); }
+.about-decoration { position: absolute; bottom: 18px; left: -26px; width: 110px; height: 140px; color: var(--chesso-blue); opacity: .09; pointer-events: none; }
+.section-enter { opacity: 0; transform: translateY(14px); transition: opacity .4s ease, transform .4s ease; }
+.section-enter.is-visible { opacity: 1; transform: none; }
+.premium-products .products-heading p { font-family: 'Raleway', sans-serif; }
+.premium-product-media { position: relative; }
+.product-photo-label { position: absolute; bottom: 18px; right: 18px; background: #fff8ebe8; padding: 7px 12px; border-radius: 3px; font-size: .63rem; color: var(--marron); letter-spacing: .08em; }
+.premium-product h3 { font-family: 'Playfair Display', serif; font-size: 1.65rem; }
+.premium-product-prices dd { font-family: 'Raleway', sans-serif; }
+.premium-product-prices { grid-template-columns: 1fr; gap: 12px; }
+.premium-product-prices > div + div { border: 0; padding: 0; }
+.premium-product-prices > div + div dt { display: none; }
+.premium-product-prices > div + div dd a { font-size: .74rem; }
+.premium-buy { background: var(--chesso-blue); border-color: var(--chesso-blue); }
+.premium-buy:hover { background: #065d70; color: var(--crema); }
+.footer-faq-button { background: none; border: 1px solid var(--linea); color: var(--crema); border-radius: 4px; padding: 8px 12px; font-size: .72rem; margin-top: 14px; }
+.marca-principal { color: var(--chesso-blue); }
+.tagline-refinado { font-family: 'Playfair Display', serif; }
+@media (max-width: 980px) { .hero-layout { gap: 32px; padding: 52px 28px; min-height: auto; } #nosotros .contenido-familiar { gap: 36px; } }
+@media (max-width: 700px) { .hero-layout { grid-template-columns: 1fr; padding: 42px 24px 30px; gap: 26px; } .hero-copy h1 { font-size: clamp(2.65rem, 10vw, 3.7rem); } .hero-stage { width: 100%; max-width: 480px; margin: auto; padding: 0; } .hero-stage::before { width: 100%; inset: 0; } .hero-leaf { right: 0; } .hero-actions { flex-direction: column; } .hero-button { width: 100%; } .hero-benefits { padding: 20px 12px; } .hero-benefits div { flex-direction: column; gap: 8px; font-size: .59rem; text-align: center; padding: 0 8px; } #nosotros { padding: 64px 24px; } #nosotros .contenido-familiar { grid-template-columns: 1fr; gap: 32px; } #nosotros .encabezado-nosotros { margin-bottom: 32px; } }
+@media (prefers-reduced-motion: reduce) { .hero-copy, .hero-stage { animation: none; } .section-enter { opacity: 1; transform: none; transition: none; } }

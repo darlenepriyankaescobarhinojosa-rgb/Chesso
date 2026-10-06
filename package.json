@@ -1,0 +1,13 @@
+{
+  "name": "cheeso",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env.local Backend_chesso/server.js",
+    "build": "node scripts/check-deployment.cjs",
+    "test": "node --test Backend_chesso/tests/*.test.cjs",
+    "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate-db.cjs"
+  },
+  "dependencies": { "pg": "^8.16.3" }
+}
