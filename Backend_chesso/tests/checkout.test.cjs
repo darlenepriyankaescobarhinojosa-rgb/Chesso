@@ -30,8 +30,8 @@ async function request(url, body, method = 'POST', token) {
 test('direct checkout uses the real 1 kg price and ignores client prices', () => {
   const input = payload(); input.items[0].price = 1; input.total = 999;
   const order = normalize(input);
-  assert.equal(order.totals.knownProductsSubtotal, 36);
-  assert.equal(order.items[0].price, 18); assert.equal(order.items.length, 1);
+  assert.equal(order.totals.knownProductsSubtotal, 40);
+  assert.equal(order.items[0].price, 20); assert.equal(order.items.length, 1);
   assert.equal(order.totals.finalTotal, null); assert.equal(order.totals.shipping, null); assert.equal(order.totals.hasVariableWeight, false);
   assert.equal(order.delivery.country, 'PE'); assert.equal(order.delivery.district, 'Lima'); assert.equal(order.location, undefined);
 });
@@ -83,7 +83,7 @@ test('invalid requests do not write orders; an independent order has a new code'
   assert.equal((await request('/api/checkout-orders', bad)).status, 400);
   const input = payload(); input.items = [{ productId: 'queso-1kg', qty: 1 }];
   const result = await request('/api/checkout-orders', input); assert.equal(result.status, 201);
-  assert.equal(result.body.order.totals.knownProductsSubtotal, 18); assert.equal(result.body.order.totals.hasVariableWeight, false);
+  assert.equal(result.body.order.totals.knownProductsSubtotal, 20); assert.equal(result.body.order.totals.hasVariableWeight, false);
   const orders = JSON.parse(fs.readFileSync(process.env.CHEESO_DB_PATH)).orders; assert.equal(orders.length, 2); assert.notEqual(orders[0].id, orders[1].id);
 });
 test('existing authentication and cart APIs still work', async () => {

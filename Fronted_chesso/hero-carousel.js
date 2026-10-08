@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let index = 0, timer, request = 0, visible = true, hovered = false, focused = false, paused = false;
     function schedule() {
         clearInterval(timer);
-        if (visible && !paused && !hovered && !focused && !document.hidden && !motion.matches) timer = setInterval(() => show(index + 1), 2000);
+        if (visible && !paused && !hovered && !focused && !document.hidden && !motion.matches) timer = setInterval(() => show(index + 1), 4000);
     }
     async function show(next) {
         const candidate = (next + photos.length) % photos.length, token = ++request;

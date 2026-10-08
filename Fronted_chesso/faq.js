@@ -9,7 +9,7 @@ window.CHEESO_FAQ = {
         const welcome = 'Hola, somos CHEESO. Elige una opción para ayudarte.';
         const answers = {
             tipos: 'Tenemos dos presentaciones: Molde de 1 kg y Molde grande. El de 1 kg se compra en el carrito; el molde grande se coordina por WhatsApp.',
-            precios: 'Molde de 1 kg: S/ 18. Molde grande: S/ 18 por kg, con precio final según su peso real. Precio mayorista: S/ 17 para 1 kg y S/ 17 por kg para molde grande, sujeto a cantidad mínima. Consulta por WhatsApp.',
+            precios: 'Molde de 1 kg: S/ 20. Molde grande: S/ 20 por kg, con precio final según su peso real. Precio mayorista: S/ 18 para 1 kg y S/ 18 por kg para molde grande, sujeto a cantidad mínima. Consulta por WhatsApp.',
             entrega: 'Coordinamos contigo los detalles y el costo de entrega según tu ubicación. Escríbenos por WhatsApp para consultar.',
             contacto: 'Puedes contactarnos por WhatsApp o mediante nuestras redes oficiales.',
             grande: 'El peso de cada molde puede variar, por eso el precio final se confirma según su peso real. Para realizar un pedido, comunícate con nosotros por WhatsApp.'

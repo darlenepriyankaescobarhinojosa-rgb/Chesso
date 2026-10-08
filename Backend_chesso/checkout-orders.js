@@ -1,9 +1,9 @@
-﻿const crypto = require('crypto');
+const crypto = require('crypto');
 const ubigeo = require('../Fronted_chesso/data/ubigeo.js');
 const catalog = Object.freeze({
-  'queso-1kg': { name: 'Molde de 1 kg', weight: '1kg', price: 18, rate: null }
+  'queso-1kg': { name: 'Molde de 1 kg', weight: '1kg', price: 20, rate: null }
 });
-const isDirectItem = item => Boolean(item && Object.hasOwn(catalog, item.productId) && Number.isSafeInteger(item.qty) && item.qty > 0 && Number.isSafeInteger(item.qty * 18));
+const isDirectItem = item => Boolean(item && Object.hasOwn(catalog, item.productId) && Number.isSafeInteger(item.qty) && item.qty > 0 && Number.isSafeInteger(item.qty * catalog[item.productId].price));
 class CheckoutError extends Error { constructor(message) { super(message); this.status = 400; } }
 function normalize(body) {
   if (!body || typeof body !== 'object' || Array.isArray(body)) throw new CheckoutError('Datos del pedido no v\u00e1lidos.');

@@ -2,7 +2,7 @@
 
 Desde la ra?z del proyecto ejecuta `npm install`, `npm start` y abre **http://localhost:3000**. Tambi?n puedes ejecutar `npm start` desde esta carpeta para el modo local sin variables de `.env.local`.
 
-El checkout utiliza `POST /api/checkout-orders`. Permite comprar como invitado y valida nombre, celular peruano, correo, direcci?n/ubigeo, cantidades y pago contraentrega. La compra directa acepta ?nicamente el molde de 1 kg a S/ 18. El molde grande se coordina por WhatsApp. No calcula costos de env?o ni recoge geolocalizaci?n.
+El checkout utiliza `POST /api/checkout-orders`. Permite comprar como invitado y valida nombre, celular peruano, correo, direcci?n/ubigeo, cantidades y pago contraentrega. La compra directa acepta ?nicamente el molde de 1 kg a S/ 20. El molde grande se coordina por WhatsApp. No calcula costos de env?o ni recoge geolocalizaci?n.
 
 Con `DATABASE_URL`, guarda los datos en PostgreSQL/Neon mediante transacciones. Sin esta variable, solamente en desarrollo local, utiliza `data/db.json`. En Vercel la conexi?n es obligatoria. El pedido se confirma al cliente despu?s de guardar los datos; los reintentos no duplican pedidos.
 

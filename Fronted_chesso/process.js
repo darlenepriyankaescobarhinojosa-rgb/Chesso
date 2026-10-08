@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const status = root.querySelector('.process-status');
     function schedule() {
         clearInterval(timer);
-        if (!paused && !hovered && !focused && visible && !document.hidden && !motion.matches) timer = setInterval(() => show(current + 1, false), 2000);
+        if (!paused && !hovered && !focused && visible && !document.hidden && !motion.matches) timer = setInterval(() => show(current + 1, false), 4000);
     }
     function show(index, manual = true) {
         current = (index + slides.length) % slides.length;
